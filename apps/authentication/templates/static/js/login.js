@@ -31,7 +31,8 @@ $('#login').on('click', async function(event){
 
         const urlParams = new URLSearchParams(window.location.search);
         urlParams.set('code', data['code']);
-        window.location.href = `${data['callback_url']}?${urlParams.toString()}`;
+        console.log(`${data['callback_url']}?${urlParams.toString()}`);
+        //window.location.href = `${data['callback_url']}?${urlParams.toString()}`;
         
         return data;
     
