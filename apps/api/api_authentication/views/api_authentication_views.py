@@ -34,9 +34,9 @@ def generate_gpt_tokens(request):
 
     if not user.exists():
         raise NotFound(detail='User not found')
-    
+    print('-----------------------------------')
     token = token_handlers.create_token(user.first())
-
     print(token)
+    print('-----------------------------------')
 
     return Response(token, status=status.HTTP_200_OK)
