@@ -37,4 +37,6 @@ def generate_gpt_tokens(request):
     
     token = token_handlers.create_token(user.first())
 
+    print(token)
+
     return Response(token, status=status.HTTP_200_OK)
