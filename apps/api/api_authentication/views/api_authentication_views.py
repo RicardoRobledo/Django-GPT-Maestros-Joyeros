@@ -14,6 +14,11 @@ def generate_gpt_tokens(request):
     """
     This view post a message
     """
+
+    print('----------------------------')
+
+    # Imprimir la URL
+    print(request.build_absolute_uri())
     print(request.data)
 
     # Imprimir los query parameters
@@ -24,6 +29,7 @@ def generate_gpt_tokens(request):
 
     # Imprimir el método HTTP utilizado
     print(request.method)
+    print('----------------------------')
 
     form = request.data
 
