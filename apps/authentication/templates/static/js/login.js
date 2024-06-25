@@ -7,7 +7,7 @@ $('#login').on('click', async function(event){
 
     const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 
-    const response = await fetch('http://127.0.0.1:8000/authentication/login/', {
+    const response = await fetch('https://django-gpt-maestros-joyeros.onrender.com/authentication/login/', {
         method: 'POST',
         mode: 'same-origin',
         headers: {
