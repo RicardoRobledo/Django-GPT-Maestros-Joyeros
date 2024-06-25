@@ -56,6 +56,6 @@ class LoginView(View):
         if not user:
             return HttpResponse(content='Error, user not found', status=HTTPStatus.NOT_FOUND)
         
-        token = token_handlers.create_token(user)['access']
+        token = token_handlers.create_token(user)['access_token']
 
         return JsonResponse(data={'callback_url':settings.CALLBACK_URL, 'code':token}, status=HTTPStatus.FOUND)
