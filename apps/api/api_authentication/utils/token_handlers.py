@@ -37,7 +37,7 @@ def create_token(user):
     tokens = GPTTokenObtainPairSerializer.get_token(user)
     tokens = {
         'token_type':'bearer',
-        'access':str(tokens.access_token),
+        'access_token':str(tokens.access_token),
         'exp':settings.ACCESS_TOKEN_EXPIRE_SECONDS,
         'refresh_token':str(tokens),
         'refresh_expires_in':settings.REFRESH_TOKEN_EXPIRE_SECONDS
