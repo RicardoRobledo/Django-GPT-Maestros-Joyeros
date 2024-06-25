@@ -8,7 +8,7 @@ from apps.users.models import UserModel
 from ..utils import token_handlers
 
 
-@api_view(['POST'])
+@api_view(['GET'])
 @permission_classes([AllowAny])
 def generate_gpt_tokens(request):
     """
