@@ -54,6 +54,5 @@ def generate_gpt_tokens(request):
     token = token_handlers.create_token(user.first())
     print(token)
     print('-----------------------------------')
-    from django.http import JsonResponse
 
-    return JsonResponse(token, status=status.HTTP_200_OK)
+    return Response(token, status=status.HTTP_200_OK, content_type='application/json')
