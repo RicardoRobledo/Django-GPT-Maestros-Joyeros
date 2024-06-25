@@ -8,12 +8,14 @@ from apps.users.models import UserModel
 from ..utils import token_handlers
 
 
-@api_view(['GET'])
+@api_view(['POST'])
 @permission_classes([AllowAny])
 def generate_gpt_tokens(request):
     """
     This view post a message
     """
+
+    print(request)
 
     form = request.data
 
