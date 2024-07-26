@@ -1,0 +1,109 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Capacitador y consultor joyero (Maestros Joyeros)",
+    "description": "Maneja información de evaluaciones, talleres y documentos de joyería de capacitación de vendedores",
+    "version": "v1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://django-gpt-maestros-joyeros.onrender.com/api/v1"
+    }
+  ],
+  "paths": {
+    "/documents/document/{document_name}": {
+      "get": {
+        "description": "Obtiene el contenido de un documento",
+        "operationId": "GetDocument",
+        "parameters": [
+          {
+            "name": "document_name",
+            "in": "path",
+            "description": "nombre de un documento",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/workshops/workshop/": {
+      "get": {
+        "description": "Obtiene un taller",
+        "operationId": "GetWorkshop",
+        "parameters": [],
+        "deprecated": false
+      }
+    },
+    "/workshops/workshop/{document_name}": {
+      "get": {
+        "description": "Obtiene un taller en base a un documento en específico",
+        "operationId": "GetSpecificWorkshop",
+        "parameters": [
+          {
+            "name": "document_name",
+            "in": "path",
+            "description": "nombre de un documento",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/workshops/workshop/evaluation/{topic_name}": {
+      "post": {
+        "description": "Envía el resultado de la evaluación del taller",
+        "operationId": "PostTestSale",
+        "parameters": [
+          {
+            "name": "topic_name",
+            "in": "path",
+            "description": "nombre de un tema",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "description": "Evaluación de un vendedor sobre un taller",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "Average": {
+                    "type": "number",
+                    "description": "Calificación que indica que tan bien ha respondido el vendedor a una pregunta de un taller",
+                    "minimum": 1,
+                    "maximum": 10
+                  }
+                },
+                "required": [
+                  "Average"
+                ]
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {},
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

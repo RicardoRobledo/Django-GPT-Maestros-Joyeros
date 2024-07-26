@@ -1,0 +1,198 @@
+INSERT INTO products (product_name, description) VALUES
+('Broqueles', 'Los broqueles son un tipo de pendientes que se caracterizan por tener una sola pieza que se coloca directamente sobre el lóbulo de la oreja. Generalmente, los broqueles consisten en una sola piedra o un diseño pequeño que cuelga cerca del lóbulo, pero no se extiende más allá de él.'),
+('Aretés', 'El término "aretés" se refiere a cualquier tipo de joya que se lleva en la oreja. Puede incluir una amplia variedad de estilos, como aros, pendientes colgantes, argollas, arracadas y más. Los aretes pueden estar hechos de diferentes materiales, como metales preciosos, gemas naturales o materiales sintéticos.'),
+('Arracada', 'Las arracadas son un tipo de pendientes que se caracterizan por su forma circular o semicircular que se extiende más allá del lóbulo de la oreja. Las arracadas pueden variar en tamaño desde modelos discretos hasta grandes y llamativas. A menudo están decoradas con gemas, perlas o diseños ornamentales.'),
+('Huggies', 'Los huggies son un estilo de pendientes que se ajustan de forma ajustada al lóbulo de la oreja. Suelen tener forma de aro pequeño y están diseñados para envolver suavemente alrededor del lóbulo, lo que les da un aspecto discreto y elegante.'),
+('Piercings', 'Los piercings son perforaciones realizadas en el cuerpo para insertar joyas decorativas. En el contexto de la joyería de oreja, un piercing se refiere a la perforación de la piel del lóbulo de la oreja o de la parte superior de la oreja (cartílago) para llevar pendientes y otras piezas de joyería.'),
+('Grillz', 'Los grillz son piezas de joyería dental que se utilizan para cubrir los dientes y darles un aspecto decorativo o lujoso. Suelen estar hechos de metales preciosos como oro o platino y pueden estar incrustados con gemas o decorados con diseños intrincados.'),
+('Brackets', 'Los brackets, también conocidos como braquets, son piezas metálicas utilizadas en ortodoncia para alinear y corregir la posición de los dientes. Aunque no son propiamente joyería, en algunos casos se pueden personalizar con recubrimientos de oro u otros metales para darles un aspecto más estético.'),
+('Montado de diamantes en dientes', 'El montado de diamantes en dientes es una práctica de decoración dental que implica incrustar pequeños diamantes u otras gemas en los dientes para crear un efecto brillante y llamativo. Esta práctica es una forma de joyería dental que se ha vuelto popular en ciertas subculturas y entre celebridades.'),
+('Dijes', 'Se utiliza para referirse a pequeños objetos decorativos que se usan generalmente en joyería. Estos objetos suelen ser colgantes o adornos que se llevan en collares, pulseras, llaveros o incluso en pendientes. Los dijes pueden tener una amplia variedad de formas, tamaños y materiales, y a menudo están diseñados para representar símbolos, figuras, letras o incluso imágenes personalizadas. Muchas personas usan dijes como una forma de expresión personal o para transmitir significados especiales, como recuerdos, creencias religiosas o símbolos de pertenencia a un grupo.'),
+('Rosario', 'Como accesorio de joyería, un "rosario" se refiere a un collar o pulsera que está diseñado para imitar el aspecto de un rosario religioso, pero sin el propósito devocional asociado. Estos rosarios de joyería suelen estar hechos de materiales como cuentas de cristal, piedras preciosas, perlas o incluso metal, y están diseñados para ser usados como accesorios estéticos.');
+
+
+INSERT INTO products (product_name, description) VALUES
+('Aro', 'En joyería se refiere a un tipo de pendiente que tiene forma circular o semicircular. Los aros pueden variar en tamaño, desde pequeños y discretos hasta grandes y llamativos. Están disponibles en una variedad de materiales, como oro, plata, acero inoxidable y otros metales preciosos o semipreciosos. Los aros pueden tener diseños simples, como un aro liso y pulido, o pueden estar adornados con gemas, grabados, filigranas u otros detalles decorativos. Algunos aros también pueden ser huecos o tener una forma retorcida o entrelazada para agregar interés visual. Los aros son una opción de joyería versátil que puede complementar una amplia gama de estilos y atuendos, desde casual hasta formal. Son populares tanto entre hombres como mujeres y pueden ser usados como un accesorio cotidiano o para ocasiones especiales. Además de usarlos en las orejas, los aros también pueden ser usados en otras partes del cuerpo, como la nariz o el ombligo, aunque esto es menos común en comparación con los pendientes de aro para las orejas.'),
+('Esclava', 'En joyería, es un tipo de pulsera que se caracteriza por ser rígida, generalmente de forma circular o ligeramente ovalada, y que se ajusta alrededor de la muñeca. Estas pulseras suelen ser más anchas que las pulseras convencionales y están diseñadas para envolver completamente la muñeca. Las esclavas pueden estar hechas de una variedad de materiales, como oro, plata, acero inoxidable o incluso materiales más económicos como el acrílico o el plástico. Pueden tener diseños simples y lisos, o estar adornadas con grabados, gemas y otros detalles decorativos. El término "esclava" a menudo evoca una sensación de solidez y fuerza debido a su construcción rígida, lo que las hace destacar como un accesorio de joyería con un estilo audaz. Estas pulseras son populares tanto entre hombres como mujeres y pueden ser usadas como un accesorio llamativo para ocasiones especiales o como una pieza de decoración en la vida cotidiana.'),
+('Semanario', 'Un brazalete semanario es un tipo de joya que consta de una serie de siete brazaletes, uno para cada día de la semana. Cada brazalete puede tener un diseño único o pueden ser similares entre sí. Estos brazaletes a menudo están diseñados para ser usados juntos en la misma muñeca, creando un aspecto coordinado y distintivo. La idea detrás de un brazalete semanario es que cada brazalete está destinado a ser usado en un día específico de la semana, lo que permite a la persona que lo usa cambiar de estilo cada día. Cada brazalete puede estar decorado de manera diferente, tal vez con piedras preciosas de colores diferentes, diseños únicos o grabados que representan el día de la semana correspondiente. Estos conjuntos de brazaletes pueden ser una forma divertida y elegante de agregar variedad a tu estilo diario y también pueden tener un significado simbólico, como recordarte eventos especiales o simplemente alegrarte el día con un brazalete que te guste particularmente.');
+
+
+INSERT INTO products (product_name, description) VALUES
+('Reloj', 'Los relojes de alta joyería son piezas excepcionales que combinan la artesanía relojera con la exquisitez de la joyería de lujo. Estos relojes son verdaderas obras maestras que incorporan materiales preciosos, como oro, platino y diamantes, así como técnicas de fabricación altamente especializadas.
+
+Algunas características comunes de los relojes de alta joyería incluyen:
+
+1.- Materiales Preciosos:
+Los relojes de alta joyería a menudo están fabricados con materiales preciosos, como oro blanco, amarillo o rosa, platino y piedras preciosas como diamantes, zafiros, rubíes o esmeraldas.
+
+2.- Diseños Intrincados:
+Los relojes de alta joyería a menudo presentan diseños intrincados y detallados que requieren un alto nivel de habilidad artesanal. Pueden incluir grabados a mano, esmaltes, engastes complejos y otras técnicas de decoración.
+
+3.- Movimientos de Alta Calidad:
+Aunque la atención se centra a menudo en la estética y el diseño, los relojes de alta joyería suelen equiparse con movimientos mecánicos de alta calidad, a menudo elaborados y decorados a mano para reflejar la artesanía excepcional.
+
+4.- Incrustaciones de Diamantes:
+Los diamantes son una característica distintiva de muchos relojes de alta joyería. Pueden estar incrustados en la esfera del reloj, en el bisel, en la corona o incluso en la pulsera, agregando un brillo excepcional y un lujo deslumbrante.
+
+5.- Ediciones Limitadas:
+Muchos relojes de alta joyería se producen en ediciones limitadas o incluso como piezas únicas, lo que les convierte en objetos de colección altamente codiciados.
+
+Estos relojes no solo sirven para mostrar la hora, sino que también son expresiones de lujo, elegancia y sofisticación. Son apreciados por su belleza estética y por ser símbolos de estatus y distinción. Los relojes de alta joyería son piezas que combinan la precisión técnica con la belleza artística, y a menudo son considerados tesoros atemporales.');
+
+
+INSERT INTO products (product_name, description) VALUES
+('Lentes', 'Los "lentes de alta joyería" son gafas o anteojos que han sido especialmente diseñados y adornados con materiales preciosos y piedras preciosas para crear piezas de lujo exclusivas. Estos lentes son mucho más que simples accesorios para la vista; son obras de arte que combinan la artesanía de la óptica con la exquisitez de la joyería fina.
+
+Algunas características de los lentes de alta joyería incluyen:
+
+1.- Monturas Decoradas: Las monturas de los lentes están elaboradas con metales preciosos como oro, platino o titanio, y pueden ser intrincadamente decoradas con grabados, filigranas y otros detalles ornamentales.
+2.- Diseños Exclusivos: Cada par de lentes de alta joyería es único y puede ser diseñado a medida para el cliente. Los diseñadores de joyas trabajan en estrecha colaboración con expertos en óptica para crear piezas que combinen la funcionalidad con el estilo y la elegancia.
+3.- Detalles de Alta Calidad: Además de las piedras preciosas, los lentes de alta joyería pueden incluir otros detalles de alta calidad, como bisagras de titanio, lentes de cristal de alta gama y acabados pulidos a mano para un aspecto impecable.
+4.- Incrustaciones de Piedras Preciosas: Los lentes de alta joyería suelen estar adornados con piedras preciosas como diamantes, zafiros, rubíes o esmeraldas. Estas piedras pueden estar incrustadas en las monturas, las patillas o incluso en las lentes mismas, agregando un toque de lujo y glamour.
+5.- Ediciones Limitadas: Debido a la meticulosa elaboración y la exclusividad de los materiales utilizados, los lentes de alta joyería suelen producirse en ediciones limitadas o como piezas únicas, lo que los convierte en objetos de colección altamente codiciados.
+
+En resumen, los lentes de alta joyería son piezas exclusivas que combinan la funcionalidad de la óptica con la opulencia de la joyería fina, creando accesorios que son tanto prácticos como estéticamente impresionantes. Estos piezas son símbolos de estatus y distinción, y son apreciados por su belleza y su valor como obras de arte de alta gama.');
+
+
+INSERT INTO products (product_name, description) VALUES
+('Anillos', 'Los "anillos" son joyas que se usan en los dedos de las manos, y a veces también en los dedos de los pies. Han sido utilizados a lo largo de la historia y en diversas culturas con una variedad de propósitos y significados, que van desde símbolos de compromiso y matrimonio hasta expresiones de estatus social, poder religioso o simplemente como accesorios de moda.
+
+Aquí hay algunas características comunes de los anillos:
+
+1.- Materiales:
+Los anillos pueden estar hechos de una amplia gama de materiales, desde metales preciosos como oro, plata y platino hasta materiales menos convencionales como acero inoxidable, titanio o incluso materiales orgánicos como madera o hueso.
+
+2.- Propósitos:
+Los anillos pueden tener diferentes significados y propósitos dependiendo de la cultura y el contexto en el que se utilicen. Algunos anillos son símbolos de compromiso o matrimonio, mientras que otros pueden ser símbolos de pertenencia a una organización, expresiones de amor o amistad, o simplemente accesorios de moda.
+
+3.- Ocasiones de Uso:
+Los anillos pueden ser usados en una variedad de ocasiones, desde eventos formales como bodas y compromisos hasta el uso diario como parte de la rutina de moda personal. Algunos anillos pueden ser más apropiados para ocasiones especiales, mientras que otros son adecuados para el uso diario.
+
+4.- Diseños:
+Los diseños de los anillos pueden variar significativamente, desde estilos simples y minimalistas hasta diseños intrincados y detallados que incorporan grabados, filigranas, engastes de piedras preciosas, esmaltes y otras técnicas decorativas.
+
+5.- Tamaños y Estilos:
+Los anillos vienen en una variedad de tamaños y estilos para adaptarse a las preferencias individuales y a la anatomía de los dedos. Pueden ser delgados y delicados o anchos y llamativos, y pueden tener formas simples como bandas lisas o diseños más elaborados con múltiples adornos.
+
+
+- Anillos:
+Los "anillos" son joyas que se usan en los dedos de las manos, y a veces también en los dedos de los pies. Han sido utilizados a lo largo de la historia y en diversas culturas con una variedad de propósitos y significados, que van desde símbolos de compromiso y matrimonio hasta expresiones de estatus social, poder religioso o simplemente como accesorios de moda.
+
+Aquí hay algunas características comunes de los anillos:
+
+    1.- Materiales:
+    Los anillos pueden estar hechos de una amplia gama de materiales, desde metales preciosos como oro, plata y platino hasta materiales menos convencionales como acero inoxidable, titanio o incluso materiales orgánicos como madera o hueso.
+
+    2.- Propósitos:
+    Los anillos pueden tener diferentes significados y propósitos dependiendo de la cultura y el contexto en el que se utilicen. Algunos anillos son símbolos de compromiso o matrimonio, mientras que otros pueden ser símbolos de pertenencia a una organización, expresiones de amor o amistad, o simplemente accesorios de moda.
+
+    3.- Ocasiones de Uso:
+    Los anillos pueden ser usados en una variedad de ocasiones, desde eventos formales como bodas y compromisos hasta el uso diario como parte de la rutina de moda personal. Algunos anillos pueden ser más apropiados para ocasiones especiales, mientras que otros son adecuados para el uso diario.
+
+    4.- Diseños:
+    Los diseños de los anillos pueden variar significativamente, desde estilos simples y minimalistas hasta diseños intrincados y detallados que incorporan grabados, filigranas, engastes de piedras preciosas, esmaltes y otras técnicas decorativas.
+
+    5.- Tamaños y Estilos:
+    Los anillos vienen en una variedad de tamaños y estilos para adaptarse a las preferencias individuales y a la anatomía de los dedos. Pueden ser delgados y delicados o anchos y llamativos, y pueden tener formas simples como bandas lisas o diseños más elaborados con múltiples adornos.
+
+
+- Argollas:
+Las "argollas" son un tipo específico de anillo que generalmente son lisas y sin adornos, y que se caracterizan por su forma circular o ligeramente ovalada. A menudo, el término "argollas" se usa para referirse a los anillos de matrimonio, especialmente aquellos que son intercambiados durante la ceremonia de matrimonio como símbolo de compromiso y unión.
+
+Aquí hay algunas características comunes de las argollas:
+
+    1.- Simplicidad:
+    Las argollas tienden a ser simples y sin adornos, con un diseño limpio y minimalista. Pueden ser lisas o tener un acabado ligeramente pulido para un aspecto clásico y atemporal.
+
+    2.- Simbolismo:
+    Las argollas tienen un significado simbólico importante en muchas culturas y tradiciones. Representan el compromiso y la unión entre dos personas en matrimonio, así como la promesa de amor y fidelidad mutua.
+
+    3.- Personalización:
+    A pesar de su apariencia simple, las argollas pueden ser personalizadas para reflejar el estilo y las preferencias individuales de la pareja. Esto puede incluir la elección de diferentes metales, anchos o acabados, así como la posibilidad de grabar mensajes o fechas importantes en el interior de los anillos.
+
+    4.- Material:
+    Tradicionalmente, las argollas de matrimonio están hechas de metales preciosos como oro, platino o plata. Sin embargo, también hay opciones más contemporáneas hechas de materiales alternativos como titanio, tungsteno o acero inoxidable.
+
+    5.- Durabilidad:
+    Dado su diseño simple, las argollas tienden a ser más duraderas y resistentes al desgaste. Están diseñadas para ser usadas todos los días como un recordatorio constante del vínculo entre los cónyuges.
+
+En resumen, las argollas son símbolos significativos de amor y compromiso en el contexto del matrimonio, y su diseño simple y elegante las convierte en piezas clásicas que pueden ser apreciadas y usadas por toda la vida.
+
+- Anillos Compromiso:
+Los "anillos de compromiso" son anillos especiales que se intercambian entre dos personas comprometidas como símbolo de su intención de casarse. Generalmente, es el hombre quien le entrega un anillo a la mujer como una expresión de su compromiso mutuo. Estos anillos tienen un significado simbólico importante y a menudo están diseñados con cuidado y atención a los detalles.
+
+Aquí hay algunas características comunes de los anillos de compromiso:
+
+    1.- Diamante central:
+    Muchas anillos de compromiso cuentan con un diamante central como la piedra principal. El diamante simboliza la durabilidad y la eternidad del amor. Sin embargo, también hay anillos de compromiso que presentan otras piedras preciosas o gemas preciosas como el rubí, la esmeralda o el zafiro.
+
+    2.- Diseño personalizado:
+    Muchas parejas optan por personalizar el diseño de su anillo de compromiso para que se adapte a los gustos y preferencias individuales. Esto puede incluir la elección de la forma y el tamaño de la piedra preciosa, el estilo de la montura y otros detalles decorativos.
+
+    3.- Simbolismo:
+    Más allá de su valor estético, los anillos de compromiso tienen un profundo significado simbólico. Representan el compromiso y la promesa de amor eterno entre dos personas, marcando el inicio de su viaje juntos hacia el matrimonio y la vida compartida.
+
+    4.- Montura:
+    La montura del anillo es el componente que sostiene la piedra preciosa en su lugar. Puede estar hecho de varios metales, como oro blanco, oro amarillo, oro rosa o platino. La montura puede tener diferentes estilos, como solitario (un solo diamante), tres piedras (con un diamante central y dos diamantes más pequeños a cada lado), o halos (un anillo de pequeños diamantes alrededor del diamante central).
+
+    5.- Grabados personalizados:
+    Algunas parejas desean agregar un toque personal a sus anillos de compromiso mediante la inclusión de grabados personalizados en el interior del anillo. Estos grabados pueden incluir fechas importantes, nombres o mensajes significativos para la pareja.
+
+En resumen, los anillos de compromiso son más que simples joyas; son símbolos poderosos de amor, compromiso y esperanza para el futuro de una pareja.
+
+- Ceremoniales: Los "anillos ceremoniales" son anillos especiales que se utilizan durante diversos tipos de ceremonias para simbolizar unión, compromiso o pertenencia. Aunque los anillos de compromiso y de matrimonio son los más comunes, hay otras ceremonias en las que se utilizan anillos ceremoniales para marcar un momento importante.
+
+Aquí hay algunos ejemplos:
+
+    1.- Anillos de compromiso: Como mencionaste anteriormente, los anillos de compromiso son un tipo de anillo ceremonial que se intercambian entre dos personas comprometidas como símbolo de su intención de casarse.
+    2.- Anillos de matrimonio: Estos anillos se intercambian durante la ceremonia de matrimonio como símbolo de la unión entre dos personas que se casan. A menudo, tienen un diseño simple y elegante, aunque pueden personalizarse según los gustos y preferencias de la pareja.
+    3.- Anillos de promesa: Son similares a los anillos de compromiso, pero se intercambian en una etapa anterior de la relación como una promesa de amor y compromiso. A menudo son utilizados por parejas que aún no están listas para comprometerse con el matrimonio, pero desean expresar su compromiso mutuo.
+    4.- Anillos de renovación de votos: Durante una ceremonia de renovación de votos, las parejas que ya están casadas intercambian anillos ceremoniales como símbolo de su compromiso continuo y duradero. Estos anillos pueden tener un diseño similar a los anillos de matrimonio originales o pueden ser completamente nuevos y personalizados para la ocasión.
+    5.- Anillos de compromiso para otras relaciones: En algunas relaciones, como las relaciones de compromiso en la comunidad BDSM (bondage, disciplina, sumisión y masoquismo), se utilizan anillos ceremoniales para marcar la pertenencia y el compromiso dentro de la relación.
+
+En resumen, los anillos ceremoniales son símbolos importantes que se utilizan en una variedad de ceremonias para marcar momentos significativos en la vida de una pareja. Independientemente del tipo de ceremonia, estos anillos representan compromiso, amor y unidad entre las personas involucradas.
+
+- Comunes:
+Los "anillos comunes" se refieren a aquellos anillos que se usan en la vida cotidiana, sin tener un significado ceremonial o especial como los de compromiso o matrimonio. Estos anillos pueden ser de diseño simple y pueden tener un significado sentimental o simplemente ser accesorios de moda.
+
+Aquí hay algunos ejemplos de anillos comunes:
+
+    1.- Anillos de moda: Estos anillos son usados principalmente como accesorios de moda para complementar el estilo personal de una persona. Pueden ser anillos simples o con diseños más elaborados, y están disponibles en una amplia variedad de estilos, materiales y colores para adaptarse a diferentes gustos y preferencias.
+    2.- Anillos familiares: Algunas personas usan anillos como una forma de llevar consigo símbolos importantes de su familia, como anillos de madre con los nombres de sus hijos grabados, anillos de herencia familiar o anillos con símbolos que representan la unidad familiar.
+    3.- Anillos de amistad: Los anillos de amistad son intercambiados entre amigos como símbolo de amistad y compañerismo. Pueden tener diseños simples con mensajes grabados o símbolos que representan la amistad entre las personas involucradas.
+    4.- Anillos de estado civil: Algunas personas eligen usar anillos para indicar su estado civil, como anillos de solteros o anillos de divorciados. Estos anillos pueden ser una expresión de la independencia o un recordatorio de experiencias pasadas.
+    5.- Anillos religiosos: En algunas tradiciones religiosas, los anillos son usados como símbolos de fe o de devoción religiosa. Pueden ser anillos con cruces, símbolos religiosos o versículos bíblicos grabados.
+    6.- Anillos de declaración: Estos son anillos que se usan para hacer una declaración de estilo audaz o para llamar la atención. Pueden tener diseños inusuales, formas llamativas o estar hechos de materiales poco convencionales para destacarse.
+
+En resumen, los anillos comunes son una parte común del vestuario diario de muchas personas y pueden tener una variedad de significados y propósitos, desde expresiones de estilo personal hasta símbolos de relaciones y experiencias importantes.');
+
+
+INSERT INTO products (product_name, description) VALUES
+('Churumbela', 'Se utiliza en algunos países de habla hispana para referirse a un tipo específico de anillo que generalmente se caracteriza por ser delgado, simple y sin adornos. A menudo, estos anillos son de oro o plata y tienen un diseño básico de banda lisa y uniforme, sin gemas ni adornos adicionales.
+Las churumbelas suelen ser utilizadas como símbolos de compromiso o matrimonio, pero también pueden ser usadas como accesorios diarios por su apariencia discreta y versátil. Aunque son menos llamativas que otros estilos de anillos, las churumbelas tienen un encanto propio y pueden ser apreciadas por su elegancia y simplicidad.
+El término "churumbela" puede variar en su uso y significado dependiendo de la región, por lo que su descripción exacta puede diferir ligeramente en diferentes lugares. Sin embargo, en general, se refiere a anillos delgados y simples que pueden ser usados en una variedad de contextos y ocasiones.');
+
+
+INSERT INTO products (product_name, description) VALUES
+('Cadenas', '1.- Cubanas: Las cadenas cubanas son un estilo de cadena gruesa y plana con enlaces entrelazados que forman un diseño similar a una cuerda. Son conocidas por su robustez y su apariencia llamativa, y suelen llevarse como accesorio de declaración.
+2.- Barbada: Las cadenas barbadas son similares a las cadenas cubanas, pero tienen eslabones más pequeños y detallados que se asemejan a pequeñas púas o espinas. Estos eslabones suelen ser planos y están entrelazados de manera apretada para crear una cadena resistente.
+3.- 1X1: Las cadenas 1X1, también conocidas como cadenas de eslabones de uno por uno, son cadenas simples donde cada eslabón tiene la misma forma y tamaño. Esto crea una apariencia uniforme y elegante que es popular tanto para hombres como para mujeres.
+4.- Miami: Las cadenas Miami son cadenas gruesas y pesadas con eslabones grandes y planos. Suelen llevar el nombre de la ciudad de Miami debido a su asociación con la cultura hip-hop y el estilo de vida lujoso.
+5.- Cartier: Las cadenas Cartier son cadenas elegantes y refinadas que suelen estar hechas de eslabones en forma de rombo o elipse. Son conocidas por su aspecto clásico y su artesanía de alta calidad.
+6.- 3X1: Las cadenas 3X1 tienen una combinación de eslabones donde tres eslabones más pequeños están unidos a un eslabón más grande. Este patrón se repite a lo largo de la cadena, creando un diseño interesante y distintivo.
+7.- Figaro: Las cadenas Figaro son cadenas italianas clásicas que tienen un patrón de eslabones en el que se alternan eslabones más largos con eslabones más cortos. Este diseño crea un aspecto elegante y sofisticado.
+8.- Torsal: Las cadenas torsales tienen un diseño retorcido que se asemeja a una cuerda o cable enrollado. Son conocidas por su aspecto único y texturizado.
+9.- Franco o Tejido Prada: Las cadenas Franco o Tejido Prada son cadenas planas y gruesas con eslabones cuadrados entrelazados entre sí. Son conocidas por su durabilidad y su aspecto moderno.
+10.- Ancla (Paper Clip): Las cadenas tipo ancla o papel clip tienen eslabones planos y anchos que se asemejan al diseño de un clip de papel. Son minimalistas y elegantes, y se han vuelto populares en la moda contemporánea.
+11.- Marinera: Las cadenas marineras son cadenas gruesas y largas con eslabones ovalados entrelazados entre sí. Reciben su nombre por su asociación con el estilo náutico y su apariencia robusta.
+12.- Gucci: Las cadenas Gucci son cadenas de lujo diseñadas por la marca italiana Gucci. Suelen estar hechas de metales preciosos y a menudo tienen el logotipo de la marca como parte del diseño.
+13.- Tennis: Las cadenas de tennis, también conocidas como cadenas de tenis, son cadenas delgadas y elegantes con una fila continua de gemas engastadas en cada eslabón. Son conocidas por su aspecto lujoso y su asociación con el tenis.
+14.- Box: Las cadenas tipo box son cadenas con eslabones cuadrados y sólidos que están conectados de manera uniforme entre sí. Son duraderas y populares para llevar colgantes o como cadenas para relojes.
+15.- Versace: Las cadenas Versace son cadenas de lujo diseñadas por la marca de moda italiana Versace. Suelen estar elaboradas con materiales de alta calidad y pueden presentar diseños distintivos de la marca.
+16.- Veneciana: Las cadenas venecianas son cadenas delgadas y flexibles con eslabones pequeños y redondos que están entrelazados entre sí. Tienen una apariencia elegante y son populares para llevar con colgantes o como cadenas para colgantes múltiples.
+17.- Tejido chino: Las cadenas de tejido chino son cadenas con un diseño intrincado que se asemeja a un tejido chino tradicional. Suelen estar hechas de eslabones pequeños y están entrelazadas de manera elaborada para crear un diseño único.
+18.- Cadena militar: Las cadenas militares son cadenas gruesas y resistentes diseñadas para uso militar. Suelen estar hechas de materiales duraderos como acero inoxidable y pueden tener un diseño simple y funcional.
+19.- Espiga: Las cadenas espiga son cadenas con eslabones en forma de espiga o punta de flecha que están entrelazados entre sí. Tienen una apariencia única y pueden ser más anchas en el centro y más delgadas en los extremos.
+20.- Omega: Las cadenas Omega son cadenas flexibles y delgadas con una estructura tubular que se asemeja a la letra omega griega. Son elegantes y se adaptan bien a diferentes estilos y colgantes.
+21.- Super Flex: Las cadenas Super Flex son cadenas flexibles y resistentes que tienen una gran capacidad para doblarse y adaptarse al movimiento del cuerpo. Son cómodas de llevar y duraderas.
+22.- Rolo: Las cadenas rolo son cadenas con eslabones redondos y sólidos que están conectados de manera uniforme entre sí. Son simples y versátiles, y pueden ser utilizadas tanto por hombres como por mujeres.');

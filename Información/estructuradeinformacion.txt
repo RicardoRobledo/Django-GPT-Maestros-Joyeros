@@ -1,0 +1,152 @@
+cual de estos corresponden a informacion de la empresa, solo informacion de la empresa general
+
+
+- Informacion de la empresa
+1Nosotros 
+1Nuestro diferenciador
+1Statement de marca
+1Objetivo de marca
+1Propuesta de valor
+1Límites, ¿qué somos?
+1Límites, ¿qué no somos?
+1Personalidad y personificación
+1Tono, estilo y objetivo 
+1DO's and DON'Ts de la marca
+
+-Estrategia Comercial:
+1Estrategia omnicanal
+1Nuestro compromiso de venta
+1Puntos de venta
+
+-Estilo y Marca Personal:
+1Estilo y marca personal
+
+-Recursos adicionales:
+Recursos adicionales
+
+-Historia y Conceptos de Lujo:
+1Breve historia del lujo
+1Lujo no es premium
+1Los mandamientos del lujo
+1El lujo en México
+
+
+-Gemología y Materiales:
+1Gemas
+1Medidas
+
+-Procesos de Fabricación:
+1Procesos de fabricación de joyería
+1Procesos de fabricación de una cadena en joyería
+1Procesos de fabricación de una cadena
+
+-Conocimientos Generales de Joyería:
+1Joyería
+
+-Herramientas y Recursos para Vendedores:
+1Herramientas para vendedores joyeros
+
+-Terminología y Conceptos de Joyería:
+1Terminología de joyería
+1Glosario Maestros joyeros
+
+Notificaciones
+
+
+PROEMIO
+DISPOSICIONES GENERALES
+CUMPLIMIENTO DE LA NORMA MEXICANA
+GLOSARIO DE TÉRMINOS Y DEFINICIONES
+CONTRATO
+CAPACIDAD LEGAL
+OTORGAMIENTO DE LICENCIA
+RESTRICCIONES DE LA LICENCIA
+REGLAS DE USO PARA EL SITIO WEB
+PRIVACIDAD E INFORMACIÓN PERSONAL
+DERECHOS DE AUTOR Y PROPIEDAD INDUSTRIAL
+MATERIAL PUBLICITARIO
+SUSCRIPCIÓN O REGISTRO DE NUEVOS USUARIOS POR INTERNET
+
+COMPRA DE PRODUCTOS Y/O SERVICIOS POR INTERNET
+
+RESPONSABILIDAD
+GARANTÍAS.
+LIMITACIONES A LA RESPONSABILIDAD.
+COMUNICACIONES DEL USUARIO.
+FALLAS EN EL SISTEMA.
+MODIFICACIONES AL SITIO WEB
+MODIFICACIONES AL CONTRATO.
+TÉRMINOS ADICIONALES.
+CESIÓN DE DERECHOS.
+INDEMNIZACIÓN.
+TERMINACIÓN
+SUBSISTENCIA
+NO RENUNCIA DE DERECHOS
+OTROS.
+
+
+
+
+
+1 Aspectos Generales y Legales
+1Proemio
+1Disposiciones generales
+1Cumplimiento de la Norma Mexicana
+1Glosario de términos y definiciones
+1Contrato
+1Capacidad legal
+
+2 Licencias y Uso del Sitio Web
+2Otorgamiento de licencia
+2Restricciones de la licencia
+2Reglas de uso para el sitio web
+2Privacidad e información personal
+
+3 Propiedad Intelectual y Publicidad
+3Derechos de autor y propiedad industrial
+3Material publicitario
+
+4 Transacciones y Servicios en Línea
+4Suscripción o registro de nuevos usuarios por internet
+4-Transacciones y servicios en línea
+4-Productos y/o servicios
+
+
+5 Responsabilidades y Garantías
+5Responsabilidad
+5Garantías
+5Limitaciones a la responsabilidad
+
+6 Comunicaciones y Fallas
+6Comunicaciones del usuario
+6Fallas en el sistema
+
+7 Modificaciones y Términos Adicionales
+7Modificaciones al sitio web
+7Modificaciones al contrato
+7Términos adicionales
+
+8 Derechos y Obligaciones
+8Cesión de derechos
+8Indemnización
+8Terminación
+8Subsistencia
+8No renuncia de derechos
+
+9 Otros
+
+
+Información de ventas y procesos
+-Calidad del servicio
+-Herramientas para vendedores
+-Oferta de servicios y capacidades
+-Política de comisiones
+-Proceso de ventas
+-Redacción para marcas
+
+
+Eres un experto que crea cursos y los imparte a estudiantes de ventas.
+
+debes de preguntrale al usuario si quiere tomar un taller, no puedes dar informacion de ellos, solo puedes impartirlos.
+
+cuando el usuario indique que quiere tomar un taller, debes usar el action de obtener taller para que se pueda obtener informacion de un taller, del mismo modo cuando se retorne la informacion debes de crear e impartir una clase de ello detallado y bien explicado, enfocandote en una sola cosa del taller para un solo estudiante, al final haz una sola pregunta en base a la clase creada para evaluar su respuesta, la pregunta debe poder contestarse en base a la clase creada, no debe ser una opinion propia subjetiva del estudiante y cuando el usuario conteste debes darle una calificacion a su respueta y retroalimentacion, de igual modo preguntale si quiere tomar otro taller

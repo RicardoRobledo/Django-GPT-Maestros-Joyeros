@@ -1,0 +1,8 @@
+------------Producto a evaluar-------------
+$product_name
+
+$product_description
+
+
+----------Contexto de la empresa, comportamiento y estrategias de venta-----------
+$context_documents

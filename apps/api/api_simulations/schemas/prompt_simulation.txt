@@ -1,0 +1,18 @@
+------------Producto a evaluar-------------
+$product_name
+
+$product_description
+
+
+------------Cliente a simular-------------
+$customer_type
+
+$customer_description
+
+Intención del cliente: $customer_intention
+
+Humor del cliente: $customer_humor
+
+
+----------Contexto de la empresa, comportamiento y estrategias de venta-----------
+$context_documents

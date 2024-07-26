@@ -1,0 +1,164 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Simulador de compras (Maestros Joyeros)",
+    "description": "Maneja información de evaluaciones y clientes en base simulaciones de compras",
+    "version": "v1.0.0"
+  },
+  "servers": [
+    {
+      "url": "https://django-gpt-maestros-joyeros.onrender.com/api/v1"
+    }
+  ],
+  "paths": {
+    "/simulations/simulation/evaluation/": {
+      "post": {
+        "description": "Envía el resultado de evaluación de la conversación en base a métricas para ser guardada en base de datos",
+        "operationId": "PostTestSale",
+        "requestBody": {
+          "description": "Dice si el vendedor ha cumplido con las 4Cs siendo claro, conciso, coherente y cordial",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "4Cs": {
+                    "type": "number",
+                    "description": "Calificación que indica que tan bien el vendedor cumple con ser claro, conciso, coherente y cordial",
+                    "minimum": 1,
+                    "maximum": 10
+                  },
+                  "Ortografía": {
+                    "type": "number",
+                    "description": "Calificación que indica que tan bien el vendedor cumple con tener buena otrografía",
+                    "minimum": 1,
+                    "maximum": 10
+                  },
+                  "Redacción": {
+                    "type": "number",
+                    "description": "Calificación que indica que tan bien el vendedor tiene buena redacción",
+                    "minimum": 1,
+                    "maximum": 10
+                  },
+                  "Promueve_acción": {
+                    "type": "number",
+                    "description": "Calificación que indica que tan bien el vendedor promueve a la acción de compra",
+                    "minimum": 1,
+                    "maximum": 10
+                  },
+                  "No_forzado": {
+                    "type": "number",
+                    "description": "Calificación que indica que tan bueno es el vendedor para no forzar compras",
+                    "minimum": 1,
+                    "maximum": 10
+                  },
+                  "Sinceridad": {
+                    "type": "number",
+                    "description": "Calificación que indica que tan bueno es el vendedor para ser sincero",
+                    "minimum": 1,
+                    "maximum": 10
+                  },
+                  "Empatía": {
+                    "type": "number",
+                    "description": "Calificación que indica que tan bueno es el vendedor para ser empático",
+                    "minimum": 1,
+                    "maximum": 10
+                  },
+                  "Iniciativa": {
+                    "type": "number",
+                    "description": "Calificación que indica que tan bueno es el vendedor para tener iniciativa",
+                    "minimum": 1,
+                    "maximum": 10
+                  },
+                  "Seguimiento": {
+                    "type": "number",
+                    "description": "Calificación que indica que tan bueno es el vendedor para hacer seguimiento",
+                    "minimum": 1,
+                    "maximum": 10
+                  },
+                  "Cierre_conversación": {
+                    "type": "number",
+                    "description": "Calificación que indica que tan bueno es el vendedor para cerrar conversaciones",
+                    "minimum": 1,
+                    "maximum": 10
+                  },
+                  "Conversación": {
+                    "type": "string",
+                    "description": "Conversación de la última simulación que hizo el usuario"
+                  }
+                },
+                "required": [
+                  "4Cs",
+                  "Ortografía",
+                  "Redacción",
+                  "Promueve_acción",
+                  "No_forzado",
+                  "Sinceridad",
+                  "Empatía",
+                  "Iniciativa",
+                  "Seguimiento",
+                  "Cierre_conversación",
+                  "Conversación"
+                ]
+              }
+            }
+          }
+        },
+        "deprecated": false
+      }
+    },
+    "/simulations/simulation/": {
+      "get": {
+        "description": "Obtiene una simulación para evaluar las habilidades del vendedor",
+        "operationId": "GetTestSale",
+        "parameters": [],
+        "deprecated": false
+      }
+    },
+    "/simulations/simulation/customer_type/{customer_type}/": {
+      "get": {
+        "description": "Obtiene una prueba de compra para evaluar la habilidades del vendedor",
+        "operationId": "GetCustomerType",
+        "parameters": [
+          {
+            "name": "customer_type",
+            "in": "path",
+            "description": "tipo de cliente a buscar",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/simulations/simulation/custom_simulation/": {
+      "get": {
+        "description": "Obtiene una simulacion personalizada para evaluar la habilidades del vendedor",
+        "operationId": "GetCustomTestSale",
+        "parameters": [],
+        "deprecated": false
+      }
+    },
+    "/customers/": {
+      "get": {
+        "description": "Obtiene los tipos de clientes existentes",
+        "operationId": "GetCustomers",
+        "parameters": [],
+        "deprecated": false
+      }
+    }
+  },
+  "components": {
+    "schemas": {},
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  }
+}

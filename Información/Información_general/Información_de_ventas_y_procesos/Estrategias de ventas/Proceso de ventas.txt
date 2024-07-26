@@ -1,0 +1,78 @@
+# Proceso de venta
+
+Siempre tengamos en mente que, para lograr el éxito con los clientes, debemos pensar en conectar con ellos más que en vender y, por ende, la compra sucederá.
+
+
+- Proceso Tienda Física
+1. Tienda Física:
+    Dar la bienvenida con un cordial saludo.
+    Preguntar en qué les podemos ayudar y prestar mucha atención a la respuesta para entender las necesidades del cliente.
+    Ofrecer bebidas y snacks.
+    Mostrar diversas alternativas de piezas según la necesidad.
+    Dar una cotización.
+    Tomar los datos del cliente.
+    Brindar alternativas de pago.
+    Verificar la aplicación de pago (enviar al grupo de aprobación de pagos).
+
+2. Piezas de stock: Proceso de salida de la pieza (nota de venta, foto en báscula).
+
+3. Piezas personalizadas:
+    Solicitar un 50% de anticipo para iniciar el proyecto.
+    Crear la solicitud de fabricación y verificación de fecha estimada con fábrica.
+    Dar un estimado de entrega.
+    Una vez terminada la pieza, pedir la liquidación de la misma.
+    Iniciar proceso de salida de la pieza (nota de venta, peso en báscula).
+    Empacar y entregar.
+    Realizar un protocolo posventa.
+
+
+- Proceso Redes Sociales
+1. Redes Sociales:
+    Cuando llega un mensaje desde alguna red social, un vendedor responde con un cordial saludo de bienvenida.
+    Preguntar en qué les podemos ayudar y prestar mucha atención a la respuesta para entender las necesidades del cliente y así conectar con ellos.
+    Solicitar los datos al cliente como su ubicación, ¿de dónde nos escribe?
+    Enviar tres opciones según lo solicitado y ficha técnica de la pieza (descripción y características).
+    A los clientes de la ZMG se les invita a las boutiques.
+    Si escriben de algún otro lado, se les hace saber del envío asegurado gratis.
+    Compartir las formas de pago.
+    Verificar la aplicación de pago (enviar al grupo de aprobación de pagos).
+
+2. Piezas de stock:
+Proceso de salida de la pieza (nota de venta, foto en báscula):
+    Para el envío se solicita una guía con nuestro proveedor DHL.
+    Cotizar el seguro de envío, dependiendo del costo de la pieza.
+    Hacer entrega de la pieza, guía y nota de venta al personal de seguridad indicado.
+    El personal de seguridad se encarga del embalaje, empaque y envío de la pieza.
+    Enviar el número de rastreo del paquete al cliente junto con su nota de pago.
+    Darle seguimiento verificando que el paquete haya llegado al cliente con la calidad, tiempo y forma debido.
+    Realizar un protocolo posventa.
+
+3. Piezas personalizadas
+    Solicitar un 50% de anticipo para iniciar el proyecto.
+    Crear la solicitud de fabricación y verificación de fecha estimada con fábrica.
+    Dar un estimado de entrega.
+    Una vez terminada la pieza, pedir la liquidación de la misma.
+    Iniciar proceso de salida de la pieza (nota de venta, peso en báscula).
+    Realizar embalaje y empaque de la pieza.
+    Para el envío se solicita una guía con nuestro proveedor DHL.
+    Cotizar el seguro de envío, dependiendo del costo de la pieza.
+    Hacer entrega de la pieza, guía y nota de venta al personal de seguridad indicado.
+    El personal de seguridad se encarga del embalaje, empaque y envío de la pieza.
+    Enviar el número de rastreo del paquete al cliente junto con su nota de pago.
+    Darle seguimiento verificando que el paquete haya llegado al cliente con la calidad, tiempo y forma debido.
+    Realizar un protocolo posventa.
+
+
+- Proceso Sitio Web y Marketplace
+1. Sitio web y marketplace:
+    El usuario hace la compra a través del sitio web.
+    Verificar datos proporcionados por el cliente.
+    Validar la aplicación de pago en Mercado Pago y enviar el comprobante de pago al grupo de pagos de e-commerce.
+    Iniciar el proceso de salida de la pieza (nota de venta, foto en báscula).
+    Para el envío se solicita una guía con nuestro proveedor DHL.
+    Cotizar el seguro de envío, dependiendo del costo de la pieza.
+    Hacer entrega de la pieza, guía y nota de venta al personal de seguridad indicado.
+    El personal de seguridad se encarga del embalaje, empaque y envío de la pieza.
+    Enviar el número de rastreo del paquete al cliente junto con su nota de pago.
+    Darle seguimiento verificando que el paquete haya llegado al cliente con la calidad, tiempo y forma debido.
+    Realizar la posventa con campañas de mailings y WhatsApp (WhataCart).

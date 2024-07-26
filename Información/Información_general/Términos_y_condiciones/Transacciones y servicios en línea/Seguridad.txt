@@ -1,0 +1,14 @@
+# Seguridad
+
+
+MAESTROS JOYEROS cuenta con los más altos estándares de seguridad. Todos los
+datos que el Cliente o Usuario ingrese al Sitio Web y/o a la aplicación digital (tienda en línea)
+de MAESTROS JOYEROS: incluyendo la información financiera, los datos de la tarjeta de
+crédito o débito, el Número de Usuario, la información personal, tales como: nombre,
+domicilio, teléfono, etc., se encriptarán bajo un método muy sofisticado utilizando tecnología
+de punta que se envían a través de nuestro servidor seguro, bajo Certificados de
+Encriptación SSL (Secure Sockets Layer) con una llave de encriptación de 128 bits.
+Estos datos no pueden ser leídos de ninguna manera durante su transmisión. Al recibir un
+número de tarjeta bancaria, éste es enviado en forma instantánea a la institución bancaria para
+su autorización y enviada de vuelta al Cliente o Usuario sin que éste número sea almacenado,
+evitando con esto muchos riesgos y garantizando la seguridad.

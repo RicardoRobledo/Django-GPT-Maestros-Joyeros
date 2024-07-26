@@ -1,0 +1,16 @@
+# Calidad del servicio de vendedores
+
+
+#### Response de vendedores
+
+Los vendedores deben de tener una ortografía y redacción impecable al atender a nuestros clientes por diversas plataformas habla mucho de nosotros como marca y deja esa primera impresión que nunca se olvidará, así que por favor cuida cada detalle al escribir.
+
+Ejemplo de Response de los vendedores:
+
+- Buenas tardes, ________ (personalizar con nombre). Te atiende tu asesor joyero César Villegas y te acompañaré en tu proceso de compra, ¿cómo te puedo ayudar?
+- Buenas tardes, ________ (personalizar con nombre). Mi nombre es César Villegas, soy tu asesor joyero y tendré el gusto de acompañarte en tu elección, ¿en qué te puedo ayudar?
+- La pieza por la que preguntas tiene un precio de $230,000. Es un dije creado vía microfusión 3D y cuenta con terminados de esmalte suizo HPHT.
+- El modelo que te gustó tiene un precio de $230,000 MXN y combina perfecto con diferentes estilos y outfits, por lo que podrás lucirlo todas las veces que quieras.
+- ¿Podrías proporcionarme un número de WhatsApp? Así podrás recibir imágenes con mejor calidad para que aprecies todos los detalles.
+- ¿Ya conoces esta técnica o te gustaría que te platique un poco más?
+- Agenda una cita, así podremos encontrar juntos una pieza ideal para ti.
