@@ -21,13 +21,13 @@ class DocumentAdmin(admin.ModelAdmin):
 
     search_fields = ('product_name', 'id',)
 
-    list_filter = ('for_workshop',)
+    list_filter = ('for_workshop', 'for_simulation',)
     
     list_display = ('document_name', 'id', 'created_at', 'updated_at',)
     
     fieldsets = (
     (
-        None, {'fields': ('document_name', 'content', 'weight', 'for_workshop', 'created_at', 'updated_at',)}),
+        None, {'fields': ('document_name', 'content', 'weight', 'for_workshop', 'for_simulation', 'created_at', 'updated_at',)}),
     )
 
     readonly_fields = ('created_at', 'updated_at',)
