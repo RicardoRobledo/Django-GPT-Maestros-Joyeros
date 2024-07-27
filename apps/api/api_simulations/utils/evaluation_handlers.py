@@ -1,7 +1,6 @@
 import math
 
-from apps.users.models import UserModel
-from apps.evaluations.models import MetricModel, ScoreModel, SimulationEvaluationModel, WorkshopEvaluationModel
+from apps.evaluations.models import MetricModel, ScoreModel, SimulationModel
 
 
 __author__ = 'Ricardo'
@@ -15,7 +14,7 @@ def round_average(average):
     
     if integer_part <= 5:
         return integer_part  # Do not round if the integer part is less than or equal to 5
-    
+
     if decimal_part <= 0.5:
         return math.floor(average)
     else:
@@ -37,27 +36,15 @@ def save_simulation_evaluation(user, evaluations, conversation=None):
     average = round_average(average)
 
     if average<=5:
-        evaluation = SimulationEvaluationModel.objects.create(average=average, user_id=user, conversation=conversation)
+        evaluation = SimulationModel.objects.create(average=average, user_id=user, conversation=conversation)
     else:
-        evaluation = SimulationEvaluationModel.objects.create(average=average, user_id=user, conversation=None)
+        evaluation = SimulationModel.objects.create(average=average, user_id=user, conversation=None)
 
     # Making the scores up
     scores = []
 
     for evaluation_name, score in evaluations.items():
         metric = MetricModel.objects.filter(metric_name=evaluation_name).first()
-        scores.append(ScoreModel(evaluation_id=evaluation, metric_id=metric, score=score))
+        scores.append(ScoreModel(simulation_id=evaluation, metric_id=metric, score=score))
 
     ScoreModel.objects.bulk_create(scores)
-
-
-def save_workshop_evaluation(user, average, topic=None):
-    """
-    This function save the evaluations of the user about a workshop
-
-    :param average: average of the user
-    :param user: User instace found
-    :param topic: Topic instance found
-    """
-
-    WorkshopEvaluationModel.objects.create(average=average, user_id=user, topic_id=topic)

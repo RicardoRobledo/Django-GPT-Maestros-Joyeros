@@ -11,7 +11,7 @@ class ProductAdmin(admin.ModelAdmin):
     
     fieldsets = (
     (
-        None, {'fields': ('product_name', 'description', 'created_at', 'updated_at',)}),
+        None, {'fields': ('product_name', 'description', 'weight', 'created_at', 'updated_at',)}),
     )
 
     readonly_fields = ('created_at', 'updated_at',)

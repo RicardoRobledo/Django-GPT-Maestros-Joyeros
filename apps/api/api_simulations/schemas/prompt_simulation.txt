@@ -14,5 +14,5 @@ Intención del cliente: $customer_intention
 Humor del cliente: $customer_humor
 
 
-----------Contexto de la empresa, comportamiento y estrategias de venta-----------
+----------Documentos de contexto-----------
 $context_documents

@@ -27,7 +27,7 @@ class DocumentAdmin(admin.ModelAdmin):
     
     fieldsets = (
     (
-        None, {'fields': ('document_name', 'content', 'for_workshop', 'created_at', 'updated_at',)}),
+        None, {'fields': ('document_name', 'content', 'weight', 'for_workshop', 'created_at', 'updated_at',)}),
     )
 
     readonly_fields = ('created_at', 'updated_at',)

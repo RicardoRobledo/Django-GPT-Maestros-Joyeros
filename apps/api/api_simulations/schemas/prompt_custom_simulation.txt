@@ -4,5 +4,5 @@ $product_name
 $product_description
 
 
-----------Contexto de la empresa, comportamiento y estrategias de venta-----------
+----------Documentos de contexto-----------
 $context_documents

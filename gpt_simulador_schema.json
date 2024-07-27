@@ -116,21 +116,11 @@
         "deprecated": false
       }
     },
-    "/simulations/simulation/customer_type/{customer_type}/": {
+    "/simulations/simulation/custom_simulation_base/": {
       "get": {
-        "description": "Obtiene una prueba de compra para evaluar la habilidades del vendedor",
-        "operationId": "GetCustomerType",
-        "parameters": [
-          {
-            "name": "customer_type",
-            "in": "path",
-            "description": "tipo de cliente a buscar",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
+        "description": "Obtiene una simulacion base para evaluar la habilidades del vendedor una vez se haya descrito la información",
+        "operationId": "GetCustomTestSaleBase",
+        "parameters": [],
         "deprecated": false
       }
     },
@@ -138,6 +128,47 @@
       "get": {
         "description": "Obtiene una simulacion personalizada para evaluar la habilidades del vendedor",
         "operationId": "GetCustomTestSale",
+        "parameters": [
+          {
+            "name": "product_name",
+            "in": "query",
+            "description": "nombre de un product",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "customer_type",
+            "in": "query",
+            "description": "tipo de cliente",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "document_names",
+            "in": "query",
+            "required": true,
+            "style": "form",
+            "explode": true,
+            "description": "Nombres de documentos que se quieren incluir en la simulación",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          }
+        ],
+        "deprecated": false
+      }
+    },
+    "/simulations/simulation/evaluation/instructions/": {
+      "get": {
+        "description": "Obtiene instrucciones a seguir de como evaluar la simulación y conversación",
+        "operationId": "GetInstructionsEvaluation",
         "parameters": [],
         "deprecated": false
       }

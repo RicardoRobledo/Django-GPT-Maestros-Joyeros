@@ -1,6 +1,7 @@
 from django.db import models
 
 from apps.base.models import BaseModel
+from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 __author__ = 'Ricardo'
@@ -18,6 +19,7 @@ class ProductModel(BaseModel):
 
     product_name = models.CharField(max_length=100, blank=False, null=False)
     description = models.TextField(blank=False, null=False)
+    weight = models.PositiveSmallIntegerField(validators=[MinValueValidator(1), MaxValueValidator(10)], blank=True, null=True, default=1)
 
     class Meta:
         verbose_name = 'product'
@@ -27,4 +29,4 @@ class ProductModel(BaseModel):
         return self.product_name
 
     def __repr__(self):
-        return f"ProductModel(product_name={self.product_name}, description={self.description}, created_at={self.created_at}, updated_at={self.updated_at})"
+        return f"ProductModel(product_name={self.product_name}, description={self.description}, weight={self.weight}, created_at={self.created_at}, updated_at={self.updated_at})"

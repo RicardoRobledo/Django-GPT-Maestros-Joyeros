@@ -9,7 +9,7 @@ __version__ = '0.1'
 
 class MetricModel(BaseModel):
     """
-    This model define a metric to evalute the user
+    This model define a metric to evaluate the user
 
     Attributes:
         metric (str): metric to evaluate the user
@@ -28,9 +28,9 @@ class MetricModel(BaseModel):
         return f"MetricModel(id={self.id}, metric={self.metric_name}, created_at={self.created_at}), updated_at={self.updated_at})"
 
 
-class SimulationEvaluationModel(BaseModel):
+class SimulationModel(BaseModel):
     """
-    This model define an evaluation about a simulation
+    This model define a simulation
     
     Attributes:
         average (int): average of the evaluation gotten from the scores
@@ -85,7 +85,7 @@ class ScoreModel(BaseModel):
     Attributes:
         user_id (UserModel): user that has the score
         metric_id (MetricModel): metric of the score
-        evaluation_id (EvaluationModel): evaluation of the score
+        simulation_id (SimulationModel): evaluation of the score
         created_at (datetime): creation date
     """
     
@@ -93,12 +93,12 @@ class ScoreModel(BaseModel):
         verbose_name = 'score'
         verbose_name_plural = 'scores'
         indexes = [
-            models.Index(name='score_sim_eval_id_idx', fields=['evaluation_id']),
+            models.Index(name='score_sim_id_idx', fields=['simulation_id']),
             models.Index(name='score_metric_id_idx', fields=['metric_id']),
             models.Index(name='score_id_idx', fields=['id']),
         ]
 
-    evaluation_id = models.ForeignKey(SimulationEvaluationModel, null=False, blank=False, on_delete=models.DO_NOTHING,)
+    simulation_id = models.ForeignKey(SimulationModel, null=False, blank=False, on_delete=models.DO_NOTHING,)
     metric_id =  models.ForeignKey(MetricModel, null=False, blank=False, on_delete=models.DO_NOTHING,)
     score = models.IntegerField(null=False, blank=False,)
 

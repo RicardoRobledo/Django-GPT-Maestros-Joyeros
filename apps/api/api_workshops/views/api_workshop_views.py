@@ -4,7 +4,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.decorators import permission_classes, api_view
 
-from apps.documents.utils.document_handlers import get_documents_not_evaluated, sum_averages_evaluations
+from ...api_documents.utils.document_handlers import get_documents_not_evaluated
+from ...api_workshops.utils.evaluation_handlers import sum_averages_evaluations
 from apps.users.models import UserModel
 from apps.documents.models import DocumentModel, TopicModel
 
@@ -12,7 +13,7 @@ from datetime import timedelta
 from django.utils import timezone
 
 from apps.users.utils import user_handlers
-from apps.evaluations.utils.evaluation_handlers import save_workshop_evaluation
+from ..utils.evaluation_handlers import save_workshop_evaluation
 
 
 __author__ = 'Ricardo'
