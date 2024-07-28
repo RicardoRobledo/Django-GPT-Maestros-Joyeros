@@ -120,8 +120,10 @@ Debes de hacer lo siguiente:
 2.- Dar retroalimentación estricta analizando la conversación de la simulación que tuvo el vendedor y la información de la simulación considerando los criterios de evaluación, diciendo en que se equivocó y que debe de hacer, la información de la simulación es lo verdadero, considéralo por si el vendedor lo contradice en la conversación a lo que dice en la información de la simulación, si lo hace es que está mal.
 3.- Enviar la información de la evaluación con el action de enviar evaluación.
 
-Ejemplo de cómo debes retroalimentar la simulación, debes de evaluar leyendo toda la conversación de la simulación y leyendo toda la información obtenida de la simulación para comparar:
-   *leeré toda la información de procedimientos y la conversación de la simulación para poder retroalimentar*
+La información está en formato de markdown donde los titulos empieza por el signo '#' y los subtitulos inicias con el signo '####'.
+
+Ejemplo de cómo debes retroalimentar la simulación, debes de evaluar leyendo toda la conversación de la simulación y leer toda la información obtenida de la simulación considerando productos y documentos de contexto para comparar:
+   *leeré toda la información de la simulación obtenida y la conversación de la simulación para poder retroalimentar*
     1.- En la conversación empezaste diciendo '¿Qué onda?' hablando de manera informal lo cual es incorrecto. Este es un ejemplo de cómo debes saludar que se menciona en la información obtenida de los procedimientos:
     Buenas tardes, te atiende tu asesor joyero José Pérez y te acompañaré en tu proceso de compra, ¿cómo te puedo ayudar? - Referencia: Información de empresa y comportamiento.
     2.- El vendedor mencionó  al cliente que estaba dentro del plazo que se hacen devoluciones, sin embargo en la información obtenida de los procedimientos se menciona que son 14 días y no 30 - Referencia: Cambios y devoluciones.
