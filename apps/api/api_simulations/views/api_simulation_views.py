@@ -116,8 +116,8 @@ def retrieve_instructions(request):
 
     inst = """
 Debes de hacer lo siguiente:
-1.- Hacer una evaluación estricta analizando la simulación que tuvo el vendedor y la información de simulación, la información de la simulación es lo verdadero, considéralo por si el vendedor contradice lo que se dice en la información, considéralo por si el vendedor lo contradice en la conversación a lo que dice en la información de la simulación, si lo hace es que está mal.
-2.- Dar retroalimentación estricta analizando la conversación de la simulación que tuvo el vendedor y la información de la simulación considerando los criterios de evaluación, diciendo en que se equivocó y que debe de hacer, la información de la simulación es lo verdadero, considéralo por si el vendedor lo contradice en la conversación a lo que dice en la información de la simulación, si lo hace es que está mal.
+1.- Hacer una evaluación estricta analizando la simulación que tuvo el vendedor y la información de simulación, la información de la simulación es lo verdadero, considéralo por si el vendedor lo contradice en la conversación a lo que dice en la información de la simulación, si lo hace es que está mal.
+2.- Dar retroalimentación estricta analizando la conversación de la simulación que tuvo el vendedor y los documentos de contexto y el producto en la información de la simulación diciendo en que se equivocó, que debe de hacer, si se equivocó en un paso de un procedimiento dile como es, la información de la simulación es lo verdadero, considéralo por si el vendedor lo contradice en la conversación a lo que dice en la información de la simulación, si lo hace es que está mal.
 3.- Enviar la información de la evaluación con el action de enviar evaluación.
 
 La información está en formato de markdown donde los titulos empieza por el signo '#' y los subtitulos inicias con el signo '####'.
