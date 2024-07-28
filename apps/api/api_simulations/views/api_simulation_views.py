@@ -115,12 +115,7 @@ def get_custom_simulation(request):
 def retrieve_instructions(request):
 
     inst = """
-Debes de simular hacer una venta con el vendedor en base a la información obtenida de esa simulació y haz lo sigueinte:
-    - Cuando obtengas la simulación no debes decir nada sobre la información obtenida, quieren eres ni del producto para que el vendedor no sepa que se va a evaluar, solo saluda y dí solo tu nombre.
-    - Simula una compra con el vendedor, los mensajes deben de ser entre 10 y 15 mensajes, si notas que la simulación ha terminado antes o después de esa cantidad también 
-    puedes detener la simulación.
-
-Al final debes seguir los siguientes pasos:
+Debes de hacer lo siguiente:
 1.- Hacer una evaluación estricta analizando la simulación que tuvo el vendedor y la información de simulación, la información de la simulación es lo verdadero, considéralo por si el vendedor contradice lo que se dice en la información, considéralo por si el vendedor lo contradice en la conversación a lo que dice en la información de la simulación, si lo hace es que está mal.
 2.- Dar retroalimentación estricta analizando la conversación de la simulación que tuvo el vendedor y la información de la simulación considerando los criterios de evaluación, diciendo en que se equivocó y que debe de hacer, la información de la simulación es lo verdadero, considéralo por si el vendedor lo contradice en la conversación a lo que dice en la información de la simulación, si lo hace es que está mal.
 3.- Enviar la información de la evaluación con el action de enviar evaluación.
