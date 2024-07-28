@@ -173,6 +173,14 @@
         "deprecated": false
       }
     },
+    "/products/": {
+      "get": {
+        "description": "Obtiene los productos existentes",
+        "operationId": "GetProducts",
+        "parameters": [],
+        "deprecated": false
+      }
+    },
     "/customers/": {
       "get": {
         "description": "Obtiene los tipos de clientes existentes",
