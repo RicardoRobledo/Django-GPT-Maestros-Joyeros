@@ -125,15 +125,6 @@ Al final debes seguir los siguientes pasos:
 2.- Dar retroalimentación estricta analizando la conversación de la simulación que tuvo el vendedor y la información de la simulación considerando los criterios de evaluación, diciendo en que se equivocó y que debe de hacer, la información de la simulación es lo verdadero, considéralo por si el vendedor lo contradice en la conversación a lo que dice en la información de la simulación, si lo hace es que está mal.
 3.- Enviar la información de la evaluación con el action de enviar evaluación.
 
-# Ejemplos
-Ejemplo de cómo puedes iniciar la simulación con intención de compra:
-    - Buen día soy Fernando, estuve viendo por instagram unos lentes que me interesaron, ¿Puede darme detalles de ellos?.
-    - ¿Qué tal?, mi nombre de Uriel estuve viendo los Huggies que venden y me parecen interesantes, ¿Qué precio tienen?.
-
-Ejemplo de como puedes debes iniciar la simulación con intención de queja:
-    - Espero que tenga un buen día, me llamo Erik compré unos aretes en Maestros Joyeros y estoy inconforme con ellos, ¿Que se puede hacer?.
-    - Saludos soy Gerardo, tengo unos lentes que compré con ustedes y estoy insatisfecho, me temo que se desprendió una joya, ¿Pueden ayudarme?.
-
 Ejemplo de cómo debes retroalimentar la simulación, debes de evaluar leyendo toda la conversación de la simulación y leyendo toda la información obtenida de la simulación para comparar:
    *leeré toda la información de procedimientos y la conversación de la simulación para poder retroalimentar*
     1.- En la conversación empezaste diciendo '¿Qué onda?' hablando de manera informal lo cual es incorrecto. Este es un ejemplo de cómo debes saludar que se menciona en la información obtenida de los procedimientos:
