@@ -132,6 +132,7 @@ Ejemplo de cómo debes retroalimentar la simulación, debes de evaluar leyendo t
     4.- Se dijo que al final del proceso de personalización de una joya se empaca y se entrega, pero en la información obtenida de  la simulación hay un paso extra al final y es que se realiza un protocolo de posventa en el proceso final - Referencia: Personalización.
     5.- Se mencionó que el cliente tiene un plazo de 30 días para un cambio de producto, pero la información obtenida de la simulación dice que son 40 días - Referencia: Cambios y devoluciones.
     6.- Para la compra hiciste el proceso de generar un enlace de pago, se lo enviaste y le dijiste las promociones de productos parecidos, sin embargo el proceso es: pedir anticipo, generar enlace de pago, el cliente debe generar una solicitud y posteriormente decir las promociones de productos parecidos. Esto es el proceso que se menciona en la información obtenida de la simulación - Referencia: Proceso de ventas.
+    7.- Mencionaste que la cadena de oro Raymond es de 14 kilates, pero en la información obtenida de la simulación dice que es de 18 kilates - Referencia: Producto cadena.
     ... así debes de evaluar todo hasta que se cubra toda la conversación de la simulación y como se apega con la información de procedimientos.    
 """
     return Response({'instructions':inst}, content_type='application/json', status=status.HTTP_200_OK)
