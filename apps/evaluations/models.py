@@ -18,12 +18,12 @@ class MetricModel(BaseModel):
     class Meta:
         verbose_name = 'metric'
         verbose_name_plural = 'metrics'
-    
+
     metric_name = models.CharField(max_length=50, null=False, blank=False,)
 
     def __str__(self):
         return self.metric_name
-    
+
     def __repr__(self):
         return f"MetricModel(id={self.id}, metric={self.metric_name}, created_at={self.created_at}), updated_at={self.updated_at})"
 
@@ -31,7 +31,7 @@ class MetricModel(BaseModel):
 class SimulationModel(BaseModel):
     """
     This model define a simulation
-    
+
     Attributes:
         average (int): average of the evaluation gotten from the scores
         conversation (str): conversation of the evaluation
@@ -39,13 +39,14 @@ class SimulationModel(BaseModel):
     """
 
     average = models.IntegerField(null=False, blank=False)
-    user_id = models.ForeignKey('users.UserModel', null=False, blank=False, on_delete=models.DO_NOTHING,)
+    user_id = models.ForeignKey(
+        'users.UserModel', null=False, blank=False, on_delete=models.DO_NOTHING,)
     conversation = models.TextField(null=True)
 
     class Meta:
         verbose_name = 'simulation_evaluation'
         verbose_name_plural = 'simulation_evaluations'
-    
+
     def __str__(self):
         return f'{self.id}'
 
@@ -56,7 +57,7 @@ class SimulationModel(BaseModel):
 class WorkshopEvaluationModel(BaseModel):
     """
     This model define an evaluation about a workshop
-    
+
     Attributes:
         average (int): average of the evaluation gotten from the scores
         topic_id (int): topic id of a topic
@@ -64,13 +65,15 @@ class WorkshopEvaluationModel(BaseModel):
     """
 
     average = models.IntegerField(null=False, blank=False)
-    topic_id = models.ForeignKey('documents.TopicModel', blank=False, null=False, default=None, on_delete=models.DO_NOTHING, )
-    user_id = models.ForeignKey('users.UserModel', null=False, blank=False, on_delete=models.DO_NOTHING,)
+    topic_id = models.ForeignKey('documents.TopicModel', blank=False,
+                                 null=False, default=None, on_delete=models.DO_NOTHING, )
+    user_id = models.ForeignKey(
+        'users.UserModel', null=False, blank=False, on_delete=models.DO_NOTHING,)
 
     class Meta:
         verbose_name = 'workshop_evaluation'
         verbose_name_plural = 'workshop_evaluations'
-    
+
     def __str__(self):
         return f'{self.id}'
 
@@ -88,7 +91,7 @@ class ScoreModel(BaseModel):
         simulation_id (SimulationModel): evaluation of the score
         created_at (datetime): creation date
     """
-    
+
     class Meta:
         verbose_name = 'score'
         verbose_name_plural = 'scores'
@@ -98,12 +101,14 @@ class ScoreModel(BaseModel):
             models.Index(name='score_id_idx', fields=['id']),
         ]
 
-    simulation_id = models.ForeignKey(SimulationModel, null=False, blank=False, on_delete=models.DO_NOTHING,)
-    metric_id =  models.ForeignKey(MetricModel, null=False, blank=False, on_delete=models.DO_NOTHING,)
+    simulation_id = models.ForeignKey(
+        SimulationModel, null=False, blank=False, on_delete=models.DO_NOTHING,)
+    metric_id = models.ForeignKey(
+        MetricModel, null=False, blank=False, on_delete=models.DO_NOTHING,)
     score = models.IntegerField(null=False, blank=False,)
 
     def __str__(self):
         return f'{self.id}'
 
     def __repr__(self):
-        return f'ScoreModel(id={self.id}, metric={self.metric_id}, created_at={self.created_at})'
+        return f'ScoreModel(id={self.id}, simulation_id={self.simulation_id}, metric={self.metric_id}, created_at={self.created_at})'

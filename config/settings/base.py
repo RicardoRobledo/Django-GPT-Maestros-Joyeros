@@ -54,7 +54,8 @@ THIRD_APPS = [
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
-    #'adrf',
+    'rangefilter',
+    # 'adrf',
 ]
 
 DJANGO_APPS = [
@@ -86,6 +87,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'apps/authentication/templates'),
+            os.path.join(BASE_DIR, 'apps/base/templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -164,7 +166,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 ACCESS_TOKEN_EXPIRE_SECONDS = config('ACCESS_TOKEN_EXPIRE_SECONDS', cast=int)
 REFRESH_TOKEN_EXPIRE_SECONDS = config('REFRESH_TOKEN_EXPIRE_SECONDS', cast=int)
 
-HASH_ALGORITHM=config('HASH_ALGORITHM')
+HASH_ALGORITHM = config('HASH_ALGORITHM')
 
 
 # CORS
@@ -178,7 +180,7 @@ CORS_ALLOW_CREDENTIALS = True
 REST_FRAMEWORK = {
 
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication',                               
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
 
     'DEFAULT_PERMISSION_CLASSES': [
@@ -213,7 +215,7 @@ SIMPLE_JWT = {
 
     'JTI_CLAIM': 'jti',
 
-    #'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
-    #'SLIDING_TOKEN_LIFETIME': timedelta(minutes=15),
-    #'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
+    # 'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
+    # 'SLIDING_TOKEN_LIFETIME': timedelta(minutes=15),
+    # 'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }

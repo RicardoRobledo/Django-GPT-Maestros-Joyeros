@@ -5,7 +5,7 @@ from .models import BranchModel
 
 class BranchAdmin(admin.ModelAdmin):
 
-    list_display = ('branch_name', 'id', 'state', 'created_at', 'updated_at')
+    list_display = ('id', 'branch_name', 'state', 'created_at', 'updated_at')
 
 
 admin.site.register(BranchModel, BranchAdmin)

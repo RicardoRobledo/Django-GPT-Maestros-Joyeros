@@ -1,14 +1,33 @@
+from datetime import datetime, timedelta
+
+from django.utils import timezone
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
-from django.http import HttpRequest
+from django.http import HttpRequest, HttpResponse
 
 from .models import UserModel, UserActionModel
 
+from apps.evaluations.models import SimulationModel
 
-from django.http import HttpResponse
+from .input_filters import user_action_inputs
+from apps.base.input_filters import general_inputs
+
+from rangefilter.filters import (
+    DateRangeQuickSelectListFilterBuilder,
+)
+
+
 class UserAdmin(BaseUserAdmin):
 
-    list_display = ('username', 'id', 'created_at', 'updated_at', 'is_active', 'is_staff', 'is_superuser')
+    list_display = ('id', 'username', 'first_name', 'middle_name',
+                    'last_name',  'created_at', 'updated_at',
+                    'is_active', 'is_staff', 'is_superuser')
+
+    list_filter = (('created_at', DateRangeQuickSelectListFilterBuilder()),
+                   ('updated_at', DateRangeQuickSelectListFilterBuilder()),)
+
+    search_fields = ('id', 'username', 'first_name',
+                     'middle_name', 'last_name', 'email',)
 
     add_fieldsets = (
         (
@@ -30,9 +49,20 @@ class UserAdmin(BaseUserAdmin):
     readonly_fields = ('created_at', 'updated_at')
 
     actions = ['crear_reporte']
-    @admin.action(description="Mark selected stories as published")
+
+    @admin.action(description="Create report")
     def crear_reporte(modeladmin, request, queryset):
-        from reportlab.lib.pagesizes import letter
+
+        user = queryset[0]
+
+        now = timezone.now()
+        thirty_days_ago = now - timedelta(days=31)
+
+        print(SimulationModel.objects.filter(
+            user_id=user.id, created_at__gte=thirty_days_ago))
+        print()
+        print()
+        '''from reportlab.lib.pagesizes import letter
         from reportlab.pdfgen import canvas
         # Crear un objeto HttpResponse con las cabeceras PDF correctas.
         response = HttpResponse(content_type='application/pdf')
@@ -53,29 +83,39 @@ class UserAdmin(BaseUserAdmin):
 
         # Terminar el PDF.
         p.showPage()
-        p.save()
+        p.save()'''
 
-        return response
+        return True
 
 
 class UserActionAdmin(admin.ModelAdmin):
-    
+
     save_as = False
     save_as_continue = False
     delete_confirmation_template = False
 
-    list_display = ('id', 'method', 'status_code', 'created_at', 'updated_at')
+    list_display = ('id', 'user_id', 'method', 'status_code',
+                    'created_at', 'updated_at')
+
+    list_filter = (general_inputs.UserTextInputFilter,
+                   user_action_inputs.UserActionMethodInputFilter,
+                   user_action_inputs.UserActionStatusCodeInputFilter,
+                   ('created_at', DateRangeQuickSelectListFilterBuilder()),)
 
     fieldsets = (
-    (
-        None, {'fields': ('user_id', 'method', 'path', 'status_code', 'created_at', 'updated_at',)}),
+        (
+            None, {'fields': ('user_id', 'method', 'path',
+                              'status_code', 'created_at', 'updated_at',)}
+        ),
     )
 
-    readonly_fields = ('user_id', 'method', 'path', 'status_code', 'created_at', 'updated_at')
+    search_fields = ('id',)
+
+    readonly_fields = ('id',)
 
     def has_add_permission(self, request, obj=None):
         return False
-    
+
     def has_delete_permission(self, request, obj=None):
         return False
 

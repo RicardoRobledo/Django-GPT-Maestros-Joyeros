@@ -5,9 +5,9 @@ from .models import ProductModel
 
 class ProductAdmin(admin.ModelAdmin):
 
-    search_fields = ('product_name', 'id',) 
+    search_fields = ('id', 'product_name',) 
     
-    list_display = ('product_name', 'id', 'created_at', 'updated_at',)
+    list_display = ('id', 'product_name', 'created_at', 'updated_at',)
     
     fieldsets = (
     (
