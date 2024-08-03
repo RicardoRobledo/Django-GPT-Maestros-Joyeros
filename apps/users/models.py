@@ -16,7 +16,6 @@ __version__ = '0.1'
 
 class UserManager(BaseUserManager):
 
-
     def create_user(self, first_name, middle_name, last_name, username, password, email, is_staff, is_active, is_superuser=False):
         user = self.model(
             first_name=first_name,
@@ -32,7 +31,6 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
         return user
 
-
     def create_superuser(self, first_name, middle_name, last_name, username, password, email):
         return self.create_user(first_name, middle_name, last_name, username, password, email, True, True, True)
 
@@ -46,30 +44,32 @@ class UserModel(AbstractBaseUser, PermissionsMixin, BaseModel):
         username (str): username of the user
         created_at (datetime): creation date
     """
-    
+
     class Meta:
         verbose_name = 'user'
         verbose_name_plural = 'users'
         indexes = [
             models.Index(name='user_id_idx', fields=['id']),
         ]
-    
+
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['first_name', 'middle_name', 'last_name', 'email']
 
     objects = UserManager()
-    first_name = models.CharField(unique=True, max_length=50, null=False, blank=False)
-    middle_name = models.CharField(unique=True, max_length=50, null=False, blank=False,)
-    last_name = models.CharField(unique=True, max_length=50, null=False, blank=False,)
-    username = models.CharField(unique=True, max_length=20, null=False, blank=False,)
+    first_name = models.CharField(max_length=50, null=False, blank=False)
+    middle_name = models.CharField(max_length=50, null=False, blank=False,)
+    last_name = models.CharField(max_length=50, null=False, blank=False,)
+    username = models.CharField(
+        unique=True, max_length=20, null=False, blank=False,)
     email = models.EmailField(unique=True, null=False, blank=False,)
-    branch_id = models.ForeignKey('branches.BranchModel', null=True, blank=False, related_name='user_branches', on_delete=models.DO_NOTHING)
+    branch_id = models.ForeignKey('branches.BranchModel', null=True, blank=False,
+                                  related_name='user_branches', on_delete=models.DO_NOTHING)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
         return self.username
-    
+
     def __repr__(self):
         return (f'UserModel('
                 f'id={self.id}, '
@@ -78,6 +78,7 @@ class UserModel(AbstractBaseUser, PermissionsMixin, BaseModel):
                 f'last_name={self.last_name}, '
                 f'username={self.username}, '
                 f'email={self.email}, '
+                f'branch_id={self.branch_id}, '
                 f'is_staff={self.is_staff}, '
                 f'is_active={self.is_active}, '
                 f'created_at={self.created_at}, '
@@ -96,7 +97,7 @@ class UserActionModel(BaseModel):
         created_at (datetime): creation date
         updated_at (datetime): update date
     """
-    
+
     class Meta:
         verbose_name = 'user action'
         verbose_name_plural = 'user actions'
@@ -108,7 +109,8 @@ class UserActionModel(BaseModel):
     method = models.CharField(max_length=10, null=False, blank=False,)
     path = models.CharField(max_length=255, null=False, blank=False,)
     status_code = models.IntegerField(null=False, blank=False,)
-    user_id = models.ForeignKey(UserModel, null=False, blank=False, related_name='action_users', on_delete=models.DO_NOTHING)
+    user_id = models.ForeignKey(UserModel, null=False, blank=False,
+                                related_name='action_users', on_delete=models.DO_NOTHING)
 
     def __str__(self):
         return f'{self.path}'

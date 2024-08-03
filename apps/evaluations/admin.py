@@ -18,13 +18,14 @@ from .input_filters import (
 
 class SimulationAdmin(admin.ModelAdmin):
 
-    list_display = ('id', 'user_id', 'average', 'created_at', 'updated_at')
+    list_display = ('id', 'get_username', 'average',
+                    'created_at', 'updated_at')
 
     list_filter = (general_inputs.AverageTextInputFilter,
                    general_inputs.UserTextInputFilter,
                    ("created_at", DateRangeQuickSelectListFilterBuilder()),)
 
-    #search_fields = ('id', 'user_id__username')
+    # search_fields = ('id', 'user_id__username')
     search_fields = ('id',)
 
     def has_delete_permission(self, request, obj=None):
@@ -32,7 +33,7 @@ class SimulationAdmin(admin.ModelAdmin):
 
     def has_change_permission(self, request, obj=None):
         return False
-    
+
     def has_add_permission(self, request):
         return False
 
@@ -40,14 +41,32 @@ class SimulationAdmin(admin.ModelAdmin):
         if obj:
             return [f.name for f in self.model._meta.fields]
         return self.readonly_fields
+
+    def get_username(self, obj):
+        return obj.user_id
+
+    get_username.short_description = 'Username'
+
+    def get_queryset(self, request):
+
+        qs = super().get_queryset(request)
+
+        # if is superuser show all users
+        if request.user.is_superuser:
+            # self.list_filter = self.list_filter.append(branch_inputs.BranchInputFilter)
+            return qs
+
+        return qs.filter(user_id__branch_id=request.user.branch_id)
 
 
 class WorkshopEvaluationAdmin(admin.ModelAdmin):
 
-    list_display = ('id', 'topic_id', 'user_id',
+    list_display = ('id', 'get_topic_name', 'get_username',
                     'average', 'created_at', 'updated_at')
 
-    list_filter = (general_inputs.AverageTextInputFilter, ("created_at", DateRangeQuickSelectListFilterBuilder()),)
+    list_filter = (general_inputs.AverageTextInputFilter,
+                   general_inputs.UserTextInputFilter,
+                   ("created_at", DateRangeQuickSelectListFilterBuilder()),)
 
     search_fields = ('id',)
 
@@ -56,7 +75,7 @@ class WorkshopEvaluationAdmin(admin.ModelAdmin):
 
     def has_change_permission(self, request, obj=None):
         return False
-    
+
     def has_add_permission(self, request):
         return False
 
@@ -65,26 +84,46 @@ class WorkshopEvaluationAdmin(admin.ModelAdmin):
             return [f.name for f in self.model._meta.fields]
         return self.readonly_fields
 
+    def get_username(self, obj):
+        return obj.user_id
+
+    get_username.short_description = 'Username'
+
+    def get_topic_name(self, obj):
+        return obj.topic_id
+
+    get_topic_name.short_description = 'Topic name'
+
+    def get_queryset(self, request):
+
+        qs = super().get_queryset(request)
+
+        # if is superuser show all users
+        if request.user.is_superuser:
+            # self.list_filter = self.list_filter.append(branch_inputs.BranchInputFilter)
+            return qs
+
+        print(request.user.branch_id)
+
+        return qs.filter(user_id__branch_id=request.user.branch_id)
+
 
 class ScoreAdmin(admin.ModelAdmin):
 
-    list_display = ('id', 'metric_id', 'score', 'simulation_id',
-                    'username', 'created_at', 'updated_at')
+    list_display = ('id', 'get_metric_name', 'score', 'simulation_id',
+                    'get_username', 'created_at', 'updated_at')
 
     list_filter = (score_inputs.ScoreTextInputFilter,
                    score_inputs.ScoreUserTextInputFilter,
                    simulation_inputs.SimulationTextInputFilter,
                    ('created_at', DateRangeQuickSelectListFilterBuilder()),)
 
-    def username(self, obj):
-        return obj.simulation_id.user_id
-
     def has_delete_permission(self, request, obj=None):
         return False
 
     def has_change_permission(self, request, obj=None):
         return False
-    
+
     def has_add_permission(self, request):
         return False
 
@@ -92,6 +131,16 @@ class ScoreAdmin(admin.ModelAdmin):
         if obj:
             return [f.name for f in self.model._meta.fields]
         return self.readonly_fields
+
+    def get_username(self, obj):
+        return obj.simulation_id.user_id
+
+    get_username.short_description = 'Username'
+
+    def get_metric_name(self, obj):
+        return obj.metric_id
+
+    get_metric_name.short_description = 'Metric name'
 
 
 class MetricAdmin(admin.ModelAdmin):
@@ -103,7 +152,7 @@ class MetricAdmin(admin.ModelAdmin):
 
     def has_change_permission(self, request, obj=None):
         return False
-    
+
     def has_add_permission(self, request):
         return False
 

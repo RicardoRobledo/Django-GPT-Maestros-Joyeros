@@ -7,7 +7,7 @@ from apps.base.input_filters.base_inputs import TextInputFilter
 
 __author__ = 'Ricardo'
 __version__ = '0.1'
-__all__ = ['UserActionInputFilter']
+__all__ = ['UserActionMethodInputFilter', 'UserActionStatusCodeInputFilter']
 
 
 class HttpMethodEnum(Enum):

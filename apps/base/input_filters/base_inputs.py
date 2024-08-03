@@ -10,8 +10,8 @@ class TextInputFilter(admin.SimpleListFilter):
     # Path to custom template
     template = 'base/input_filter.html'
 
-    # def lookups(self, request, model_admin):
-    #    return ((None, None),)
+    def lookups(self, request, model_admin):
+        return ((None, None),)
 
     def choices(self, changelist):
 

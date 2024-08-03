@@ -11,7 +11,7 @@ __all__ = ['save_user_evaluation']
 def round_average(average):
     integer_part = int(average)
     decimal_part = average - integer_part
-    
+
     if integer_part <= 5:
         return integer_part  # Do not round if the integer part is less than or equal to 5
 
@@ -35,16 +35,20 @@ def save_simulation_evaluation(user, evaluations, conversation=None):
     average = sum(evaluation_values)/len(evaluation_values)
     average = round_average(average)
 
-    if average<=5:
-        evaluation = SimulationModel.objects.create(average=average, user_id=user, conversation=conversation)
+    if average <= 5:
+        evaluation = SimulationModel.objects.create(
+            average=average, user_id=user, conversation=conversation)
     else:
-        evaluation = SimulationModel.objects.create(average=average, user_id=user, conversation=None)
+        evaluation = SimulationModel.objects.create(
+            average=average, user_id=user, conversation=None)
 
     # Making the scores up
     scores = []
 
     for evaluation_name, score in evaluations.items():
-        metric = MetricModel.objects.filter(metric_name=evaluation_name).first()
-        scores.append(ScoreModel(simulation_id=evaluation, metric_id=metric, score=score))
+        metric = MetricModel.objects.filter(
+            metric_name=evaluation_name).first()
+        scores.append(ScoreModel(simulation_id=evaluation,
+                      metric_id=metric, score=score))
 
     ScoreModel.objects.bulk_create(scores)

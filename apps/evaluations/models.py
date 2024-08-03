@@ -111,4 +111,4 @@ class ScoreModel(BaseModel):
         return f'{self.id}'
 
     def __repr__(self):
-        return f'ScoreModel(id={self.id}, simulation_id={self.simulation_id}, metric={self.metric_id}, created_at={self.created_at})'
+        return f'ScoreModel(id={self.id}, simulation_id={self.simulation_id}, metric={self.metric_id}, score={self.score}, created_at={self.created_at})'

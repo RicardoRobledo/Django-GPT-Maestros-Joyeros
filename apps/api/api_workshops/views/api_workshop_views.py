@@ -27,7 +27,7 @@ def get_workshop(request):
     This view get our products
     """
 
-    #print(GPTTokenObtainPairSerializer(request.auth))
+    # print(GPTTokenObtainPairSerializer(request.auth))
     # Obtener la fecha y hora actual
     now = timezone.now()
 
@@ -36,13 +36,14 @@ def get_workshop(request):
 
     user = UserModel.objects.filter(id=request.auth['user_id']).first()
 
-    documents_not_evaluated = get_documents_not_evaluated(user, start_date, for_workshop=True)
+    documents_not_evaluated = get_documents_not_evaluated(
+        user, start_date, for_workshop=True)
     document_selected = None
 
     if documents_not_evaluated.exists():
 
         document_not_evaluated = documents_not_evaluated.first()
- 
+
         document_selected = DocumentModel.objects.filter(
             id=document_not_evaluated['id'],
             for_workshop=True
@@ -52,9 +53,10 @@ def get_workshop(request):
         # doing a sum of averages with the evaluations and return the document with the lowest average
         document_selected = sum_averages_evaluations(user, start_date)[0]
 
-    user_handlers.register_action(request=request, status_code=status.HTTP_200_OK)
+    user_handlers.register_action(
+        request=request, status_code=status.HTTP_200_OK)
 
-    return Response({'document':document_selected.content, 'topic':document_selected.topic_id.topic_name}, content_type='application/json', status=status.HTTP_200_OK)
+    return Response({'document': document_selected.content, 'topic': document_selected.topic_id.topic_name}, content_type='application/json', status=status.HTTP_200_OK)
 
 
 @api_view(['GET'])
@@ -68,16 +70,19 @@ def get_specific_workshop(request, document_name):
     user = UserModel.objects.filter(id=request.auth['user_id']).first()
 
     # Getting the document
-    document = DocumentModel.objects.filter(for_workshop=True, document_name=document_name)
+    document = DocumentModel.objects.filter(
+        for_workshop=True, document_name=document_name)
 
     if not document.exists():
-        user_handlers.register_action(request=request, status_code=status.HTTP_404_NOT_FOUND)
+        user_handlers.register_action(
+            request=request, status_code=status.HTTP_404_NOT_FOUND)
         raise NotFound('The document was not found')
 
     document_gotten = document.first()
-    user_handlers.register_action(request=request, status_code=status.HTTP_200_OK)
+    user_handlers.register_action(
+        request=request, status_code=status.HTTP_200_OK)
 
-    return Response({'document':document_gotten.content, 'topic':document_gotten.topic_id.topic_name}, content_type='application/json', status=status.HTTP_200_OK)
+    return Response({'document': document_gotten.content, 'topic': document_gotten.topic_id.topic_name}, content_type='application/json', status=status.HTTP_200_OK)
 
 
 @api_view(['POST'])
@@ -91,20 +96,23 @@ def save_evaluation(request, topic_name):
     average = request.data.pop('Average', None)
 
     if not average:
-        user_handlers.register_action(request=request, status_code=status.HTTP_406_NOT_ACCEPTABLE)
+        user_handlers.register_action(
+            request=request, status_code=status.HTTP_406_NOT_ACCEPTABLE)
         raise NotAcceptable('The average has not been provided')
 
     # Getting the topic
     topic = TopicModel.objects.filter(topic_name=topic_name)
 
     if not topic.exists():
-        user_handlers.register_action(request=request, status_code=status.HTTP_406_NOT_ACCEPTABLE)
+        user_handlers.register_action(
+            request=request, status_code=status.HTTP_406_NOT_ACCEPTABLE)
         raise NotFound('The topic was not found')
 
     # Getting the user
     user = UserModel.objects.filter(id=request.auth['user_id']).first()
 
     save_workshop_evaluation(user, average, topic.first())
-    user_handlers.register_action(request=request, status_code=status.HTTP_200_OK)
+    user_handlers.register_action(
+        request=request, status_code=status.HTTP_200_OK)
 
-    return Response({'msg':'Evaluation of workshop saved succesfully'}, content_type='application/json', status=status.HTTP_200_OK)
+    return Response({'msg': 'Evaluation of workshop saved succesfully'}, content_type='application/json', status=status.HTTP_200_OK)
