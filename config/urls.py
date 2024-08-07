@@ -30,16 +30,27 @@ api_prefix = 'api/v1'
 urlpatterns = [
 
     path('admin/', admin.site.urls),
-    path('authentication/', include('apps.authentication.controllers.urls')),
+    path('authentication/', include('maestros_joyeros.authentication.controllers.urls')),
 
-    path(f'{api_prefix}/simulations/', include('apps.api.api_simulations.controllers.urls')),
-    path(f'{api_prefix}/workshops/', include('apps.api.api_workshops.controllers.urls')),
-    path(f'{api_prefix}/customers/', include('apps.api.api_customers.controllers.urls')),
-    path(f'{api_prefix}/products/', include('apps.api.api_products.controllers.urls')),
-    path(f'{api_prefix}/documents/', include('apps.api.api_documents.controllers.urls')),
-    path(f'{api_prefix}/authentication/', include('apps.api.api_authentication.controllers.urls')),
-    path(f'{api_prefix}/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path(f'{api_prefix}/simulations/',
+         include('maestros_joyeros.api.api_simulations.controllers.urls')),
+    path(f'{api_prefix}/workshops/',
+         include('maestros_joyeros.api.api_workshops.controllers.urls')),
+    path(f'{api_prefix}/customers/',
+         include('maestros_joyeros.api.api_customers.controllers.urls')),
+    path(f'{api_prefix}/products/',
+         include('maestros_joyeros.api.api_products.controllers.urls')),
+    path(f'{api_prefix}/documents/',
+         include('maestros_joyeros.api.api_documents.controllers.urls')),
+    path(f'{api_prefix}/authentication/',
+         include('maestros_joyeros.api.api_authentication.controllers.urls')),
+    path(f'{api_prefix}/token/refresh/',
+         TokenRefreshView.as_view(), name='token_refresh'),
 
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
 
-handler404 = 'apps.authentication.views.authentication_views.custom_404'
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL,
+                          document_root=settings.STATIC_ROOT)
+
+handler404 = 'maestros_joyeros.authentication.views.authentication_views.custom_404'

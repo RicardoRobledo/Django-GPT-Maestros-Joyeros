@@ -15,8 +15,17 @@ from decouple import config
 from datetime import timedelta
 import os
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
+
+
+ENVIRONMENT = config('ENVIRONMENT', default='LOCAL')
+
+if ENVIRONMENT == 'PRODUCTION':
+    from .production import *
+elif ENVIRONMENT == 'LOCAL':
+    from .local import *
 
 
 # Quick-start development settings - unsuitable for production
@@ -31,22 +40,22 @@ CLIENT_ID = config('CLIENT_ID')
 # Application definition
 
 APPS = [
-    'apps.base',
-    'apps.users',
-    'apps.evaluations',
-    'apps.documents',
-    'apps.branches',
-    'apps.authentication',
-    'apps.customers',
-    'apps.products',
+    'maestros_joyeros.base',
+    'maestros_joyeros.users',
+    'maestros_joyeros.evaluations',
+    'maestros_joyeros.documents',
+    'maestros_joyeros.branches',
+    'maestros_joyeros.authentication',
+    'maestros_joyeros.customers',
+    'maestros_joyeros.products',
 ]
 
 API_APPS = [
-    'apps.api.api_authentication',
-    'apps.api.api_documents',
-    'apps.api.api_products',
-    'apps.api.api_workshops',
-    'apps.api.api_simulations',
+    'maestros_joyeros.api.api_authentication',
+    'maestros_joyeros.api.api_documents',
+    'maestros_joyeros.api.api_products',
+    'maestros_joyeros.api.api_workshops',
+    'maestros_joyeros.api.api_simulations',
 ]
 
 THIRD_APPS = [
@@ -86,8 +95,9 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            os.path.join(BASE_DIR, 'apps/base/templates'),
-            os.path.join(BASE_DIR, 'apps/authentication/templates'),
+            os.path.join(BASE_DIR, 'maestros_joyeros/base/templates'),
+            os.path.join(
+                BASE_DIR, 'maestros_joyeros/authentication/templates'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -148,7 +158,7 @@ LOGIN_URL = '/authentication/login/'
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'apps/authentication/templates/static'),
+    os.path.join(BASE_DIR, 'maestros_joyeros/authentication/templates/static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 

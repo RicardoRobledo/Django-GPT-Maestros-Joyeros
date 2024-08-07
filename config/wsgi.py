@@ -13,4 +13,21 @@ from django.core.wsgi import get_wsgi_application
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.local')
 
+
+def startup():
+    """
+    This method initialize services
+    """
+
+    print('Configuring services...')
+    print('Configuring matplotlib...')
+
+    # Configure matplotlib to work without server
+    import matplotlib
+    matplotlib.use('Agg')
+
+    print('matplotlib configured!')
+
+
+startup()
 application = get_wsgi_application()
