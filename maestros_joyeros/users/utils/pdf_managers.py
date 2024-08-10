@@ -151,7 +151,7 @@ def create_branch_report(branch_name, total_simulations, user_simulation_scores,
 
     # Create a HttpResponse object with the correct PDF headers
     response = HttpResponse(content_type='application/pdf')
-    response['Content-Disposition'] = f"attachment; filename=Reporte_{branch_name}_{date}.pdf;"
+    response['Content-Disposition'] = f"attachment; filename=Reporte_{branch_name}_{date}.pdf"
 
     # Create the PDF object using reportlab
     doc = SimpleDocTemplate(response, pagesize=letter)

@@ -3,7 +3,7 @@ from django.conf import settings
 from rest_framework.response import Response
 from rest_framework.decorators import permission_classes, api_view
 from rest_framework.permissions import AllowAny
-from rest_framework.exceptions import NotFound
+from rest_framework.exceptions import AuthenticationFailed, ParseError
 from rest_framework import status
 
 from maestros_joyeros.users.models import UserModel
@@ -20,11 +20,12 @@ def generate_gpt_tokens(request):
     form = request.data
 
     if not all(valor in form for valor in ('grant_type', 'client_secret', 'client_id')):
-        raise NotFound(
+        raise ParseError(
             detail='grant_type, client_secret or client_id not found')
 
     if not form['client_secret'] == settings.CLIENT_SECRET and not form['client_id'] == settings.CLIENT_ID:
-        raise NotFound(detail='client_secret or client_id are incorrect')
+        raise AuthenticationFailed(
+            detail='client_secret or client_id are incorrect')
 
     token = None
 
@@ -34,12 +35,12 @@ def generate_gpt_tokens(request):
         token = token_handlers.decode_token(form['refresh_token'])
 
     if token is None:
-        raise NotFound(detail='Invalid grant type or credentials')
+        raise ParseError(detail='Invalid grant type or credentials')
 
     user = UserModel.objects.filter(username=token['username'])
 
     if not user.exists():
-        raise NotFound(detail='User not found')
+        raise AuthenticationFailed(detail='User not found')
 
     token = token_handlers.create_token(user.first())
 

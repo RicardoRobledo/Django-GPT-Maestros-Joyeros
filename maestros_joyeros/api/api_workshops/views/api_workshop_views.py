@@ -24,14 +24,14 @@ __version__ = '0.1'
 @permission_classes([IsAuthenticated])
 def get_workshop(request):
     """
-    This view get our products
+    This view get a random workshop
     """
 
     # print(GPTTokenObtainPairSerializer(request.auth))
-    # Obtener la fecha y hora actual
+    # Get actual date and hour
     now = timezone.now()
 
-    # Calcular la fecha de hace 32 días
+    # Calculate date 32 days ago
     start_date = now - timedelta(days=32)
 
     user = UserModel.objects.filter(id=request.auth['user_id']).first()
@@ -106,7 +106,7 @@ def save_evaluation(request, topic_name):
     if not topic.exists():
         user_handlers.register_action(
             request=request, status_code=status.HTTP_406_NOT_ACCEPTABLE)
-        raise NotFound('The topic was not found')
+        raise NotAcceptable('The topic was not found')
 
     # Getting the user
     user = UserModel.objects.filter(id=request.auth['user_id']).first()

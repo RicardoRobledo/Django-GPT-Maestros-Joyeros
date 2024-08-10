@@ -31,7 +31,7 @@ class LoginViewTestCase(TestCase):
 
     def test_login_success(self):
 
-        response = self.client.post(reverse('authentication_app:login'), {
+        response = self.client.post(reverse('app_authentication:login'), {
             'username': 'johnsmith',
             'password': 'password123',
             'callback_url': 'prueba'
@@ -41,7 +41,7 @@ class LoginViewTestCase(TestCase):
 
     def test_login_failure(self):
 
-        response = self.client.post(reverse('authentication_app:login'), {
+        response = self.client.post(reverse('app_authentication:login'), {
             'username': 'wrongtestuser',
             'password': 'wrongpassword',
             'callback_url': 'prueba'

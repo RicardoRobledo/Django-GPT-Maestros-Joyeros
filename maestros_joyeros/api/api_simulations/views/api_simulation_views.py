@@ -17,7 +17,7 @@ from maestros_joyeros.evaluations.models import MetricModel
 
 from maestros_joyeros.users.utils import user_handlers
 from ...api_customers.utils.customer_handlers import get_random_customer
-from ...api_products.utils.product_handler import prepare_product
+from ...api_products.utils.product_handlers import prepare_product
 from ...api_documents.utils.document_handlers import get_context_documents
 
 from ..utils.prompt_handlers import read_prompt, format_simulation_prompt
@@ -50,7 +50,7 @@ def get_simulation(request):
     documents = get_context_documents()
 
     formatted_output = format_simulation_prompt(
-        'apps/api/api_simulations/schemas/prompt_simulation.txt', product, customer, documents)
+        'maestros_joyeros/api/api_simulations/schemas/prompt_simulation.txt', product, customer, documents)
     user_handlers.register_action(
         request=request, status_code=status.HTTP_200_OK)
 
@@ -90,7 +90,7 @@ def get_type_based_simulation(request):
     product = product.first()
 
     formatted_output = format_simulation_prompt(
-        'apps/api/api_simulations/schemas/prompt_simulation.txt', product, customer, documents)
+        'maestros_joyeros/api/api_simulations/schemas/prompt_simulation.txt', product, customer, documents)
     user_handlers.register_action(
         request=request, status_code=status.HTTP_200_OK)
 
@@ -110,7 +110,7 @@ def get_custom_simulation(request):
     documents = get_context_documents()
 
     formatted_output = format_simulation_prompt(
-        'apps/api/api_simulations/schemas/prompt_custom_simulation.txt', product, None, documents)
+        'maestros_joyeros/api/api_simulations/schemas/prompt_custom_simulation.txt', product, None, documents)
     user_handlers.register_action(
         request=request, status_code=status.HTTP_200_OK)
 
@@ -122,7 +122,7 @@ def get_custom_simulation(request):
 def retrieve_instructions(request):
 
     instructions = read_prompt(
-        'apps/api/api_simulations/schemas/prompt_evaluation_instructions.txt')
+        'maestros_joyeros/api/api_simulations/schemas/prompt_evaluation_instructions.txt')
 
     return Response({'instructions': instructions}, content_type='application/json', status=status.HTTP_200_OK)
 

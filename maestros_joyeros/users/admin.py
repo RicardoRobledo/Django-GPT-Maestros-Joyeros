@@ -193,8 +193,6 @@ class UserAdmin(BaseUserAdmin):
                 user.user_simulations.values_list('id', flat=True))
 
             simulation_ids.extend(user_simulation_ids)
-            print(f'User: {user.username}')
-            print(f'Simulation IDs: {user_simulation_ids}')
 
         # Getting simulations and scores
 
@@ -262,7 +260,7 @@ class UserAdmin(BaseUserAdmin):
             total_workshops = 0
 
         response = create_branch_report(
-            branch_name, total_simulations, user_simulation_scores, total_workshops, user_workshop_evaluations)
+            branch_name.replace(' ', '_'), total_simulations, user_simulation_scores, total_workshops, user_workshop_evaluations)
 
         return response
 

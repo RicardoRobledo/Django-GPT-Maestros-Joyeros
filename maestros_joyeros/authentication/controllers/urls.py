@@ -4,7 +4,7 @@ from django.contrib.auth.views import LogoutView
 from maestros_joyeros.authentication.views import authentication_views
 
 
-app_name = 'authentication_app'
+app_name = 'app_authentication'
 
 
 urlpatterns = [

@@ -1,5 +1,9 @@
-from django.test import TestCase, Client
+from django.urls import reverse
+from django.test import TestCase, RequestFactory, Client
+from django.contrib.admin.sites import AdminSite
 from django.contrib.auth.models import Group, Permission
+
+from .utils.pdf_managers import create_single_report, create_branch_report
 
 from maestros_joyeros.branches.models import BranchModel
 from maestros_joyeros.users.models import UserModel
@@ -124,3 +128,118 @@ class UserTestCase(TestCase):
         product_exists = ProductModel.objects.filter(
             id=self.product.id).exists()
         self.assertTrue(product_exists)
+
+
+class PDFReportTestCase(TestCase):
+
+    def setUp(self):
+
+        self.branch = BranchModel.objects.create(
+            branch_name="Sample Branch",
+            state="NY"
+        )
+
+        self.user = UserModel.objects.create(
+            first_name="John",
+            middle_name="Doe",
+            last_name="Smith",
+            username="johnsmith",
+            email="johnsmith@example.com",
+            is_staff=False,
+            is_active=True,
+            is_superuser=False,
+            password="password123",
+            branch_id=self.branch
+        )
+
+    def test_create_single_report(self):
+
+        total_simulations = 2
+
+        user_simulation_evaluation = [
+            {'metric_name': '4Cs', 'metric_average': 75},
+            {'metric_name': 'Negociación', 'metric_average': 85}
+        ]
+
+        total_workshops = 2
+
+        user_workshop_scores = [
+            {'topic_name': 'Topic 1', 'topic_count': 1, 'topic_average': 85},
+            {'topic_name': 'Topic 2', 'topic_count': 2, 'topic_average': 90}
+        ]
+
+        response = create_single_report(
+            self.user, total_simulations, user_simulation_evaluation, total_workshops, user_workshop_scores)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response['Content-Type'], 'application/pdf')
+
+    def test_create_branch_report(self):
+
+        total_simulations = 0
+        user_simulation_scores = []
+
+        total_workshops = 2
+        user_workshop_evaluations = [
+            {'topic_name': 'Topic 1', 'topic_count': 1, 'topic_average': 85},
+            {'topic_name': 'Topic 2', 'topic_count': 2, 'topic_average': 90}
+        ]
+
+        response = create_branch_report(
+            self.branch.branch_name, total_simulations, user_simulation_scores, total_workshops, user_workshop_evaluations)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response['Content-Type'], 'application/pdf')
+
+
+class PDFReportAdminTest(TestCase):
+
+    def setUp(self):
+
+        self.client = Client()
+
+        self.branch = BranchModel.objects.create(
+            branch_name="Sample Branch",
+            state="NY"
+        )
+
+        self.site = AdminSite()
+        self.factory = RequestFactory()
+
+        self.user = UserModel.objects.create(
+            first_name="John",
+            middle_name="Doe",
+            last_name="Smith",
+            username="johnsmith",
+            email="johnsmith@example.com",
+            is_staff=False,
+            is_active=True,
+            is_superuser=False,
+            password="password123",
+            branch_id=self.branch
+        )
+        self.user.set_password('password123')
+        self.user.save()
+
+    def test_generate_branch_report_pdf(self):
+
+        # Simula una solicitud GET al panel de admin para generar un PDF
+        request = self.factory.get(
+            reverse('admin:generate_branch_report', args=[self.branch.branch_name]))
+
+        # Autenticar el usuario en la solicitud
+        request.user = self.user
+
+        # Llama a la vista de generación de PDF directamente
+        response = create_branch_report(
+            branch_name=self.branch.branch_name,
+            total_simulations=5,
+            user_simulation_scores=[
+                {"metric_name": "Accuracy", "metric_average": 8.5}],
+            total_workshops=3,
+            user_workshop_evaluations=[
+                {"topic_name": "Sales", "topic_count": 2, "topic_average": 9.0}]
+        )
+
+        self.assertEqual(response['Content-Type'], 'application/pdf')
+        self.assertIn('attachment; filename=', response['Content-Disposition'])
+        self.assertGreater(len(response.content), 0)
