@@ -64,6 +64,7 @@ THIRD_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     'corsheaders',
     'rangefilter',
+    'drf_yasg',
     # 'adrf',
 ]
 
@@ -148,7 +149,7 @@ USE_TZ = True
 
 AUTH_USER_MODEL = 'users.UserModel'
 
-LOGIN_REDIRECT_URL = '/chatbot/chat/'
+LOGIN_REDIRECT_URL = '/swagger/'
 LOGOUT_REDIRECT_URL = '/authentication/login/'
 LOGIN_URL = '/authentication/login/'
 
@@ -191,6 +192,7 @@ REST_FRAMEWORK = {
 
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     ],
 
     'DEFAULT_PERMISSION_CLASSES': [
@@ -199,12 +201,23 @@ REST_FRAMEWORK = {
 
 }
 
+# DJ-REST-AUTH
+REST_AUTH = {
+    'USE_JWT': True,
+    'JWT_AUTH_COOKIE': 'jwt-auth',
+}
+
 
 # SIMPLE JWT
 
 SIMPLE_JWT = {
 
-    'TOKEN_OBTAIN_SERIALIZER': 'api_authentication.serializers.token_serializers.MyTokenObtainPairSerializer',
+    'TOKEN_OBTAIN_SERIALIZER': 'rest_framework_simplejwt.serializers.TokenObtainPairSerializer',
+    'TOKEN_REFRESH_SERIALIZER': 'rest_framework_simplejwt.serializers.TokenRefreshSerializer',
+    'TOKEN_VERIFY_SERIALIZER': 'rest_framework_simplejwt.serializers.TokenVerifySerializer',
+    'TOKEN_BLACKLIST_SERIALIZER': 'rest_framework_simplejwt.serializers.TokenBlacklistSerializer',
+    'SLIDING_TOKEN_OBTAIN_SERIALIZER': 'rest_framework_simplejwt.serializers.TokenObtainSlidingSerializer',
+    'SLIDING_TOKEN_REFRESH_SERIALIZER': 'rest_framework_simplejwt.serializers.TokenRefreshSlidingSerializer',
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=15),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
     'ROTATE_REFRESH_TOKENS': True,
@@ -228,4 +241,30 @@ SIMPLE_JWT = {
     # 'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
     # 'SLIDING_TOKEN_LIFETIME': timedelta(minutes=15),
     # 'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
+}
+
+
+# Swagger
+
+SWAGGER_SETTINGS = {
+
+    'LOGIN_URL': '/api-auth/login/',
+    'LOGOUT_URL': '/swagger/logout/',
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header',
+        },
+    },
+    'DOC_EXPANSION': 'none',
+
+}
+
+REDOC_SETTINGS = {
+
+    'REQUIRED_PROPS_FIRST': True,
+    'NATIVE_SCROLLBARS': True,
+    'LAZY_RENDERING': False,
+
 }

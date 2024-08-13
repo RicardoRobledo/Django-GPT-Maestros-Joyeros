@@ -64,9 +64,9 @@ def get_documents_not_evaluated(user, start_date, **options):
         'topic_id'
     ).distinct()
 
-    # Getting the documents in which we can do a an evaluation and removing the ones we have already done
+    # Getting the documents in which we can do an evaluation and removing the ones we have already done
     documents_not_evaluated = DocumentModel.objects.filter(
-        **options
+        **options,
     ).prefetch_related(
         'topic_id'
     ).values(

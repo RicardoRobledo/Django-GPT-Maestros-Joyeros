@@ -8,25 +8,48 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.decorators import permission_classes, api_view
 
+from drf_yasg.utils import swagger_auto_schema
+
 from maestros_joyeros.api.api_simulations.utils.evaluation_handlers import save_simulation_evaluation
 from maestros_joyeros.users.models import UserModel
 from maestros_joyeros.documents.models import DocumentModel
 from maestros_joyeros.customers.models import CustomerModel
 from maestros_joyeros.products.models import ProductModel
 from maestros_joyeros.evaluations.models import MetricModel
-
 from maestros_joyeros.users.utils import user_handlers
+
 from ...api_customers.utils.customer_handlers import get_random_customer
 from ...api_products.utils.product_handlers import prepare_product
 from ...api_documents.utils.document_handlers import get_context_documents
 
 from ..utils.prompt_handlers import read_prompt, format_simulation_prompt
 
+from .swagger_schemas import (
+    save_evaluation_schemas,
+    retrieve_instructions_schemas,
+    get_custom_simulation_schemas,
+    get_simulation_schemas,
+    get_type_based_simulation_schemas
+)
+
 
 __author__ = 'Ricardo'
 __version__ = '1.0'
 
 
+# -----------------------------
+
+
+@swagger_auto_schema(
+    method='get',
+    operation_description="Obtiene una simulación para evaluar las habilidades del vendedor",
+    operation_id="GetTestSale",
+    responses={
+        status.HTTP_200_OK: get_simulation_schemas.http_200_response,
+        status.HTTP_404_NOT_FOUND: get_simulation_schemas.http_404_response,
+    },
+    tags=['Simulations']
+)
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_simulation(request):
@@ -57,6 +80,24 @@ def get_simulation(request):
     return Response({'simulation': formatted_output}, content_type='application/json', status=status.HTTP_200_OK)
 
 
+# -----------------------------
+
+
+@swagger_auto_schema(
+    method='get',
+    operation_description="Obtiene una simulación personalizada para evaluar las habilidades del vendedor",
+    operation_id="GetCustomTestSale",
+    manual_parameters=[
+        get_type_based_simulation_schemas.product_name_parameter,
+        get_type_based_simulation_schemas.customer_type_parameter,
+        get_type_based_simulation_schemas.document_names_parameter
+    ],
+    responses={
+        status.HTTP_200_OK: get_type_based_simulation_schemas.http_200_response,
+        status.HTTP_404_NOT_FOUND: get_type_based_simulation_schemas.http_404_response,
+    },
+    tags=['Simulations']
+)
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_type_based_simulation(request):
@@ -97,6 +138,19 @@ def get_type_based_simulation(request):
     return Response({'simulation': formatted_output}, content_type='application/json', status=status.HTTP_200_OK)
 
 
+# -----------------------------
+
+
+@swagger_auto_schema(
+    method='get',
+    operation_description="Obtiene una simulación base para evaluar las habilidades del vendedor una vez se haya descrito la información",
+    operation_id="GetCustomTestSaleBase",
+    responses={
+        status.HTTP_200_OK: get_custom_simulation_schemas.http_200_response,
+        status.HTTP_404_NOT_FOUND: get_custom_simulation_schemas.http_404_response,
+    },
+    tags=['Simulations']
+)
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_custom_simulation(request):
@@ -117,6 +171,19 @@ def get_custom_simulation(request):
     return Response({'simulation': formatted_output}, content_type='application/json', status=status.HTTP_200_OK)
 
 
+# -----------------------------
+
+
+@swagger_auto_schema(
+    method='get',
+    operation_description="Obtiene instrucciones a seguir de cómo evaluar la simulación y conversación",
+    operation_id="GetInstructionsEvaluation",
+    responses={
+        status.HTTP_200_OK: retrieve_instructions_schemas.http_200_response,
+        status.HTTP_404_NOT_FOUND: retrieve_instructions_schemas.http_404_response,
+    },
+    tags=['Simulations']
+)
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def retrieve_instructions(request):
@@ -127,6 +194,21 @@ def retrieve_instructions(request):
     return Response({'instructions': instructions}, content_type='application/json', status=status.HTTP_200_OK)
 
 
+# -----------------------------
+
+
+@swagger_auto_schema(
+    method='post',
+    operation_description="Envía el resultado de evaluación de la conversación en base a métricas para ser guardada en base de datos",
+    operation_id="PostTestSale",
+    request_body=save_evaluation_schemas.gettbs_request_body,
+    responses={
+        status.HTTP_200_OK: save_evaluation_schemas.http_200_response,
+        status.HTTP_406_NOT_ACCEPTABLE: save_evaluation_schemas.http_406_response,
+        status.HTTP_401_UNAUTHORIZED: save_evaluation_schemas.http_401_response,
+    },
+    tags=['Simulations']
+)
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def save_evaluation(request):
