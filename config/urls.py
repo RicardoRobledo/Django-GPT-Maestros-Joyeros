@@ -48,7 +48,7 @@ api_prefix = 'api/v1'
 
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('panel-control/', admin.site.urls),
     path('authentication/', include('maestros_joyeros.authentication.controllers.urls')),
 
     path(f'{api_prefix}/simulations/',
