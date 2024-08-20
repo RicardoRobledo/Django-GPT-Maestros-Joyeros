@@ -12,9 +12,14 @@ def insert_initial_data(apps, schema_editor):
     DocumentModel = apps.get_model('documents', 'DocumentModel')
 
     notifications_objects = TopicModel.objects.create(
-        topic_name='Notificaciones')
+        topic_name='Notificaciones',
+    )
     DocumentModel.objects.create(document_name='Notificaciones',
-                                 content='No hay notificaciones nuevas', topic_id=notifications_objects)
+                                 content='No hay notificaciones nuevas',
+                                 topic_id=notifications_objects,
+                                 for_simulation=False,
+                                 for_workshop=False,
+                                 )
 
     folder_paths = [
         'Información/Información_general/Información_de_la_empresa_y_general_de_producto',

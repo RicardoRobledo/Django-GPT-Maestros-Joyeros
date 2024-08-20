@@ -12,18 +12,33 @@ from .models import MetricModel, ScoreModel, SimulationModel, WorkshopEvaluation
 
 from .input_filters import (
     score_inputs,
-    simulation_inputs
+    simulation_inputs,
 )
+
+from maestros_joyeros.documents.input_filters import document_inputs
 
 
 class SimulationAdmin(admin.ModelAdmin):
 
-    list_display = ('id', 'get_username', 'average',
-                    'created_at', 'updated_at')
+    list_display = ('id', 'average', 'get_username', 'get_first_name', 'get_middle_name',
+                    'get_last_name', 'created_at', 'updated_at')
 
     list_filter = (general_inputs.AverageTextInputFilter,
-                   general_inputs.UserTextInputFilter,
+                   general_inputs.UserUsernameTextInputFilter,
+                   general_inputs.UserFirstNameTextInputFilter,
                    ("created_at", DateRangeQuickSelectListFilterBuilder()),)
+
+    fieldsets = (
+        (None, {
+            'fields': ('id',)
+        }),
+        ('Simulation details', {
+            'fields': ('get_username', 'get_first_name', 'get_middle_name', 'get_last_name', 'average')
+        }),
+        ('Timestamps', {
+            'fields': ('created_at', 'updated_at')
+        }),
+    )
 
     # search_fields = ('id', 'user_id__username')
     search_fields = ('id',)
@@ -47,6 +62,21 @@ class SimulationAdmin(admin.ModelAdmin):
 
     get_username.short_description = 'Username'
 
+    def get_first_name(self, obj):
+        return obj.user_id.first_name
+
+    get_first_name.short_description = 'First name'
+
+    def get_middle_name(self, obj):
+        return obj.user_id.middle_name
+
+    get_middle_name.short_description = 'Middle name'
+
+    def get_last_name(self, obj):
+        return obj.user_id.last_name
+
+    get_last_name.short_description = 'Last name'
+
     def get_queryset(self, request):
 
         qs = super().get_queryset(request)
@@ -61,14 +91,28 @@ class SimulationAdmin(admin.ModelAdmin):
 
 class WorkshopEvaluationAdmin(admin.ModelAdmin):
 
-    list_display = ('id', 'get_topic_name', 'get_username',
-                    'average', 'created_at', 'updated_at')
+    list_display = ('id', 'average', 'get_topic_name', 'get_username', 'get_first_name', 'get_middle_name',
+                    'get_last_name', 'created_at', 'updated_at')
 
     list_filter = (general_inputs.AverageTextInputFilter,
-                   general_inputs.UserTextInputFilter,
+                   general_inputs.UserUsernameTextInputFilter,
+                   general_inputs.UserFirstNameTextInputFilter,
+                   document_inputs.TopicNameTextInputFilter,
                    ("created_at", DateRangeQuickSelectListFilterBuilder()),)
 
     search_fields = ('id',)
+
+    fieldsets = (
+        (None, {
+            'fields': ('id', 'average')
+        }),
+        ('Details', {
+            'fields': ('get_topic_name', 'get_username', 'get_first_name', 'get_middle_name', 'get_last_name')
+        }),
+        ('Timestamps', {
+            'fields': ('created_at', 'updated_at')
+        }),
+    )
 
     def has_delete_permission(self, request, obj=None):
         return False
@@ -88,6 +132,21 @@ class WorkshopEvaluationAdmin(admin.ModelAdmin):
         return obj.user_id
 
     get_username.short_description = 'Username'
+
+    def get_first_name(self, obj):
+        return obj.user_id.first_name
+
+    get_first_name.short_description = 'First name'
+
+    def get_middle_name(self, obj):
+        return obj.user_id.middle_name
+
+    get_middle_name.short_description = 'Middle name'
+
+    def get_last_name(self, obj):
+        return obj.user_id.last_name
+
+    get_last_name.short_description = 'Last name'
 
     def get_topic_name(self, obj):
         return obj.topic_id
@@ -111,12 +170,26 @@ class WorkshopEvaluationAdmin(admin.ModelAdmin):
 class ScoreAdmin(admin.ModelAdmin):
 
     list_display = ('id', 'get_metric_name', 'score', 'simulation_id',
-                    'get_username', 'created_at', 'updated_at')
+                    'get_username', 'get_first_name', 'get_middle_name',
+                    'get_last_name', 'created_at', 'updated_at')
 
     list_filter = (score_inputs.ScoreTextInputFilter,
                    score_inputs.ScoreUserTextInputFilter,
+                   score_inputs.ScoreUserFirstNameTextInputFilter,
                    simulation_inputs.SimulationTextInputFilter,
                    ('created_at', DateRangeQuickSelectListFilterBuilder()),)
+
+    fieldsets = (
+        (None, {
+            'fields': ('id', 'get_metric_name', 'score', 'simulation_id')
+        }),
+        ('Score details', {
+            'fields': ('get_username', 'get_first_name', 'get_middle_name', 'get_last_name')
+        }),
+        ('Timestamps', {
+            'fields': ('created_at', 'updated_at')
+        }),
+    )
 
     def has_delete_permission(self, request, obj=None):
         return False
@@ -136,6 +209,21 @@ class ScoreAdmin(admin.ModelAdmin):
         return obj.simulation_id.user_id
 
     get_username.short_description = 'Username'
+
+    def get_first_name(self, obj):
+        return obj.simulation_id.user_id.first_name
+
+    get_first_name.short_description = 'First name'
+
+    def get_middle_name(self, obj):
+        return obj.simulation_id.user_id.middle_name
+
+    get_middle_name.short_description = 'Middle name'
+
+    def get_last_name(self, obj):
+        return obj.simulation_id.user_id.last_name
+
+    get_last_name.short_description = 'Last name'
 
     def get_metric_name(self, obj):
         return obj.metric_id

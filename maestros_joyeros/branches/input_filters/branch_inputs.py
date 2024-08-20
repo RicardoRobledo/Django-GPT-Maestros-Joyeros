@@ -16,13 +16,15 @@ class BranchTextInputFilter(TextInputFilter):
 
         if self.value():
 
-            branch_name = self.value()
+            branch_name = request.GET['branch_name']
 
-            branches = queryset.filter(
+            users_with_branches = queryset.filter(
                 branch_id__branch_name__icontains=branch_name)
 
-            if branches.exists():
-                return branches
+            print(users_with_branches)
+
+            if users_with_branches.exists():
+                return users_with_branches
 
             self.message_user(
                 request, "Ninguna sucursal fue encontrada con ese nombre", level=messages.WARNING)

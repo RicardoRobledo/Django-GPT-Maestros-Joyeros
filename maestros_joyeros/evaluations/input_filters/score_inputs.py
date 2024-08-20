@@ -45,8 +45,8 @@ class ScoreTextInputFilter(TextInputFilter):
 
 class ScoreUserTextInputFilter(TextInputFilter):
 
-    title = 'User'
-    parameter_name = 'user'
+    title = 'Username'
+    parameter_name = 'username'
 
     def queryset(self, request, queryset):
 
@@ -62,6 +62,32 @@ class ScoreUserTextInputFilter(TextInputFilter):
 
             self.message_user(
                 request, "Ningún usuario fue encontrado con ese nombre de usuario", level=messages.WARNING)
+
+            return queryset
+
+    def message_user(self, request, message, level=messages.INFO):
+        messages.add_message(request, level, message)
+
+
+class ScoreUserFirstNameTextInputFilter(TextInputFilter):
+
+    title = 'First name'
+    parameter_name = 'first_name'
+
+    def queryset(self, request, queryset):
+
+        if self.value():
+
+            first_name = self.value()
+
+            user = UserModel.objects.filter(
+                first_name__icontains=first_name)
+
+            if user.exists():
+                return queryset.filter(simulation_id__user_id=user.first().id)
+
+            self.message_user(
+                request, "Ningún usuario fue encontrado con ese primer nombre", level=messages.WARNING)
 
             return queryset
 

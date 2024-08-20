@@ -40,12 +40,12 @@ def get_day_range_filter():
 class UserAdmin(BaseUserAdmin):
 
     list_display = ('id', 'username', 'first_name', 'middle_name',
-                    'last_name', 'branch_id', 'created_at', 'updated_at',
+                    'last_name', 'get_branch_name', 'created_at', 'updated_at',
                     'is_active', 'is_staff', 'is_superuser')
 
-    list_filter = (branch_inputs.BranchTextInputFilter,
+    list_filter = ['is_active',
                    ('created_at', DateRangeQuickSelectListFilterBuilder()),
-                   ('updated_at', DateRangeQuickSelectListFilterBuilder()),)
+                   ('updated_at', DateRangeQuickSelectListFilterBuilder())]
 
     search_fields = ('id', 'username', 'first_name', 'middle_name',
                      'last_name', 'email', 'branch_id__branch_name')
@@ -69,7 +69,8 @@ class UserAdmin(BaseUserAdmin):
 
     readonly_fields = ('created_at', 'updated_at')
 
-    actions = ['generate_single_report', 'generate_branch_report']
+    actions = ['deactivate_selected_users',
+               'generate_single_report', 'generate_branch_report']
 
     @admin.action(description="Generate single report")
     def generate_single_report(self, request, queryset):
@@ -140,24 +141,30 @@ class UserAdmin(BaseUserAdmin):
 
         # Gettings branches
 
-        branch_name = request.GET.get('branch_name', None)
+        if request.user.is_superuser:
 
-        if not branch_name:
+            branch_name = request.GET.get('branch_name', None)
 
-            self.message_user(
-                request, "Debes de filtrar por el nombre de una sucursal", level=messages.ERROR)
+            if not branch_name:
 
-            return None
+                self.message_user(
+                    request, "Debes de filtrar por el nombre de una sucursal", level=messages.ERROR)
 
-        branch_gotten = BranchModel.objects.filter(
-            branch_name__icontains=branch_name)
+                return None
 
-        if not branch_gotten.exists():
+            branch_gotten = BranchModel.objects.filter(
+                branch_name__icontains=branch_name)
 
-            self.message_user(
-                request, "Debes de asegurarte de que la sucursal exista", level=messages.ERROR)
+            if not branch_gotten.exists():
 
-            return None
+                self.message_user(
+                    request, "Debes de asegurarte de que la sucursal exista", level=messages.ERROR)
+
+                return None
+
+        else:
+
+            branch_name = request.user.branch_id.branch_name
 
         # day range to filter
 
@@ -168,13 +175,14 @@ class UserAdmin(BaseUserAdmin):
         users = queryset.exclude(
             Q(is_staff=True) | ~Q(branch_id__branch_name__icontains=branch_name)
         ).filter(
-            created_at__gte=day_range
+            created_at__gte=day_range,
+            is_active=True
         )
 
         if users.count() == 0:
 
             self.message_user(
-                request, "Debes de elegir un usuario o más y no deben de ser personal", level=messages.ERROR)
+                request, "Debes de elegir un usuario o más que estén activos y no deben de ser personal", level=messages.ERROR)
 
             return None
 
@@ -264,16 +272,55 @@ class UserAdmin(BaseUserAdmin):
 
         return response
 
+    def get_branch_name(self, obj):
+
+        if obj.branch_id:
+            return obj.branch_id.branch_name
+
+    get_branch_name.short_description = 'Branch'
+
     def get_queryset(self, request):
 
         qs = super().get_queryset(request)
 
         # if is superuser show all users
         if request.user.is_superuser:
-            # self.list_filter = self.list_filter.append(branch_inputs.BranchInputFilter)
+            # self.list_filter = self.list_filter.append(branch_inputs.BranchTextInputFilter)
             return qs
 
         return qs.filter(branch_id=request.user.branch_id)
+
+    def get_list_filter(self, request):
+
+        if request.user.is_superuser:
+            return [branch_inputs.BranchTextInputFilter] + self.list_filter
+
+        return self.list_filter
+
+    def delete_model(self, request, obj):
+
+        obj.is_active = False
+        obj.save()
+
+    def deactivate_selected_users(self, request, queryset):
+        # Deactivate selected users instead delete them
+        queryset.update(is_active=False)
+        self.message_user(
+            request, "Los usuarios seleccionados han sido desactivados.")
+
+    # Cambiar el nombre que aparece en el menú de acciones
+    deactivate_selected_users.short_description = "Deactivate selected users"
+
+    # Override default action to deactivate users
+    def get_actions(self, request):
+
+        actions = super().get_actions(request)
+
+        if 'delete_selected' in actions:
+            # Delete the default delete action
+            del actions['delete_selected']
+
+        return actions
 
 
 class UserActionAdmin(admin.ModelAdmin):
@@ -282,24 +329,33 @@ class UserActionAdmin(admin.ModelAdmin):
     save_as_continue = False
     delete_confirmation_template = False
 
-    list_display = ('id', 'user_id', 'method', 'status_code',
+    list_display = ('id', 'get_first_name', 'get_middle_name', 'get_last_name', 'get_username', 'method', 'status_code',
                     'created_at', 'updated_at')
 
-    list_filter = (general_inputs.UserTextInputFilter,
+    list_filter = (general_inputs.UserUsernameTextInputFilter,
+                   general_inputs.UserFirstNameTextInputFilter,
                    user_action_inputs.UserActionMethodTextInputFilter,
                    user_action_inputs.UserActionStatusCodeTextInputFilter,
                    ('created_at', DateRangeQuickSelectListFilterBuilder()),)
 
     fieldsets = (
-        (
-            None, {'fields': ('user_id', 'method', 'path',
-                              'status_code', 'created_at', 'updated_at',)}
-        ),
+        (None, {
+            'fields': ('id',)
+        }),
+        ('user action details', {
+            'fields': ('get_username', 'method', 'path', 'status_code')
+        }),
+        ('Timestamps', {
+            'fields': ('created_at', 'updated_at')
+        }),
     )
 
     search_fields = ('id',)
 
-    readonly_fields = ('id',)
+    readonly_fields = ('id', 'get_username', 'method', 'path', 'status_code',
+                       'created_at', 'updated_at')
+
+    exclude = ('user_id',)
 
     def has_add_permission(self, request, obj=None):
         return False
@@ -313,6 +369,26 @@ class UserActionAdmin(admin.ModelAdmin):
         extra_context['show_save_and_continue'] = False
         extra_context['show_save_and_add_another'] = False
         return super(UserActionAdmin, self).change_view(request, object_id, form_url, extra_context=extra_context)
+
+    def get_username(self, obj):
+        return obj.user_id
+
+    get_username.short_description = 'Username'
+
+    def get_first_name(self, obj):
+        return obj.user_id.first_name
+
+    get_first_name.short_description = 'First name'
+
+    def get_middle_name(self, obj):
+        return obj.user_id.middle_name
+
+    get_middle_name.short_description = 'Middle name'
+
+    def get_last_name(self, obj):
+        return obj.user_id.last_name
+
+    get_last_name.short_description = 'Last name'
 
 
 admin.site.register(UserModel, UserAdmin)

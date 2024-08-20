@@ -43,10 +43,10 @@ class AverageTextInputFilter(TextInputFilter):
         messages.add_message(request, level, message)
 
 
-class UserTextInputFilter(TextInputFilter):
+class UserUsernameTextInputFilter(TextInputFilter):
 
-    title = 'User'
-    parameter_name = 'user'
+    title = 'Username'
+    parameter_name = 'username'
 
     def queryset(self, request, queryset):
 
@@ -62,6 +62,32 @@ class UserTextInputFilter(TextInputFilter):
 
             self.message_user(
                 request, "Ningún usuario fue encontrado con ese nombre de usuario", level=messages.WARNING)
+
+            return queryset.none()
+
+    def message_user(self, request, message, level=messages.INFO):
+        messages.add_message(request, level, message)
+
+
+class UserFirstNameTextInputFilter(TextInputFilter):
+
+    title = 'First name'
+    parameter_name = 'first_name'
+
+    def queryset(self, request, queryset):
+
+        if self.value():
+
+            first_name = self.value()
+
+            user = UserModel.objects.filter(
+                first_name__icontains=first_name)
+
+            if user.exists():
+                return queryset.filter(user_id=user.first().id)
+
+            self.message_user(
+                request, "Ningún usuario fue encontrado con ese primer nombre", level=messages.WARNING)
 
             return queryset.none()
 

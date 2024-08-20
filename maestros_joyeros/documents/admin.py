@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 from .models import TopicModel, DocumentModel
-from .input_filters.document_input import WeightTextInputFilter
+from .input_filters.document_inputs import WeightTextInputFilter
 
 from rangefilter.filters import (
     DateRangeQuickSelectListFilterBuilder,
